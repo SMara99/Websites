@@ -1,0 +1,41 @@
+/* index_styles.css for my front page index.html */
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the header */
+header {
+    display: flex;                /* Use Flexbox for centering */
+    flex-direction: column;      /* Stack items vertically */
+    align-items: center;         /* Center items horizontally */
+    justify-content: center;      /* Center items vertically */
+    height: 25vh;               /* Full height of the viewport */
+    background-color: #b234b6;  /* Lavender background */
+    color: white;                /* White text color */
+    text-align: center;          /* Center text */
+}
+
+/* Style the navigation menu */
+nav ul {
+    list-style: none;            /* Remove bullet points */
+    padding: 0;                 /* Remove padding */
+}
+
+nav ul li {
+    display: inline;             /* Display list items inline */
+    margin: 0 15px;             /* Add margin between items */
+}
+
+nav a {
+    color: #b234b6;                /* White text for links */
+    text-decoration: none;       /* Remove underline */
+}
+
+/* Optional: Add hover effect for links */
+nav a:hover {
+    text-decoration: underline;  /* Underline links on hover */
+}
