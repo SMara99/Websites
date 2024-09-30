@@ -14,8 +14,8 @@ header {
     align-items: center;         /* Center items horizontally */
     justify-content: center;      /* Center items vertically */
     height: 25vh;               /* Full height of the viewport */
-    background-color: #b234b6;  /* Lavender background */
-    color: white;                /* White text color */
+    background-color: #b234b6;  
+    color: white;                
     text-align: center;          /* Center text */
 }
 
@@ -38,4 +38,29 @@ nav a {
 /* Optional: Add hover effect for links */
 nav a:hover {
     text-decoration: underline;  /* Underline links on hover */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox layout for the body to keep footer at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
+}
+
+/* Main content will take up remaining space between header and footer */
+main {
+    flex: 1; /* Make main grow to fill available space */
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+footer {
+    align-items: center;
+    text-align: center;
 }
