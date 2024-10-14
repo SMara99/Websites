@@ -9,58 +9,30 @@
 
 /* Style the header */
 header {
-    display: flex;                /* Use Flexbox for centering */
-    flex-direction: column;      /* Stack items vertically */
-    align-items: center;         /* Center items horizontally */
-    justify-content: center;      /* Center items vertically */
-    height: 25vh;               /* Full height of the viewport */
-    background-color: #b234b6;  
-    color: white;                
-    text-align: center;          /* Center text */
-}
-
-/* Style the navigation menu */
-nav ul {
-    list-style: none;            /* Remove bullet points */
-    padding: 0;                 /* Remove padding */
-}
-
-nav ul li {
-    display: inline;             /* Display list items inline */
-    margin: 0 15px;             /* Add margin between items */
-}
-
-nav a {
-    color: #b234b6;                /* White text for links */
-    text-decoration: none;       /* Remove underline */
-}
-
-/* Optional: Add hover effect for links */
-nav a:hover {
-    text-decoration: underline;  /* Underline links on hover */
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* Flexbox layout for the body to keep footer at the bottom */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
-}
-
-/* Main content will take up remaining space between header and footer */
-main {
-    flex: 1; /* Make main grow to fill available space */
-    padding: 20px;
-    background-color: #f9f9f9;
-}
-
-footer {
-    align-items: center;
+    background-color: #702963;        /* Example header background color */
+    color: white;                     /* Header text color */
+    position: relative;                /* Keep header in normal document flow */
+    z-index: 1;                       /* Make sure it's below the left column */
+    height: 25vh;
     text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+}
+
+.profile {
+    position: relative;
+}
+
+.left-column {
+    position: absolute;                 /* Use absolute positioning */
+    top: 0;                            /* Position it at the top of the viewport */
+    left: 0;                           /* Position it at the left of the viewport */
+    width: 25%;                        /* Set the width to 25% of the container */
+    height: 100vh;                    /* Full height of the viewport */
+    background-color: #933782;         /* Light background for the left column */
+    text-align: center;                /* Center the text */
+    padding: 20px;                     /* Add some padding */
+    z-index: 2;                       /* Ensure it overlays above the header */
 }
