@@ -1,0 +1,103 @@
+/* Global styling */
+body {
+    font-family: 'Creepster', cursive, sans-serif; /* Dramatic font */
+    background-color: #D162A4; /* Page background color */
+    color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: 'Creepster', cursive, sans-serif;
+    color: #FFF;
+}
+
+/* Styling for input area */
+.todo-input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.todo-input input,
+.todo-input button {
+    padding: 10px;
+    margin: 0 5px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+}
+
+/* Input fields background color - whiter gray */
+.todo-input input {
+    background-color: #e0e0e0; /* Whiter gray background for inputs */
+}
+
+/* Focus effects */
+.todo-input input:focus,
+.todo-input button:focus {
+    outline: none;
+}
+
+.todo-input button {
+    background-color: #BA79A0; /* New purple-pink color for the button */
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ToDo Table */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+/* First row of ToDo table same as Maintenance */
+#dailyTasks tr:first-child th {
+    background-color: #BA79A0; /* New purple-pink color */
+    color: #fff;
+}
+
+/* Maintenance Table - Adjusted Color for First Column and Row */
+#weeklyPlanner th, #weeklyPlanner td {
+    background-color: #e0e0e0; /* Light gray background color for non-highlighted cells */
+}
+
+/* Make the first [1][1] cell transparent */
+#weeklyPlanner td:first-child:first-child {
+    background-color: transparent; /* Transparent background */
+    color: transparent; /* Hide the text */
+}
+
+/* Updated color for first row and column */
+#weeklyPlanner th:first-child, #weeklyPlanner td:first-child {
+    background-color: #BA79A0; /* New purple-pink color */
+    color: #fff;
+}
+
+#weeklyPlanner tr:first-child th {
+    background-color: #BA79A0; /* New purple-pink color for first row */
+    color: #fff;
+}
+
+/* Ensure content is centered */
+body {
+    font-family: 'Creepster', cursive, sans-serif;
+}
+
+#weeklyPlanner th, #weeklyPlanner td {
+    padding: 15px;
+    text-align: center;
+}

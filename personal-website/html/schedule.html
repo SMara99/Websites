@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="../css/schedule_style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dailyTasksTable = document.getElementById('dailyTasks');
+            const resetTime = new Date();
+            resetTime.setHours(0, 0, 0, 0);
+
+            function resetDailyTasks() {
+                if (new Date() >= resetTime) {
+                    dailyTasksTable.querySelector('tbody').innerHTML = '';
+                    localStorage.removeItem('dailyTasks');
+                    resetTime.setDate(resetTime.getDate() + 1);
+                }
+            }
+
+            function loadDailyTasks() {
+                const savedTasks = localStorage.getItem('dailyTasks');
+                if (savedTasks) {
+                    dailyTasksTable.querySelector('tbody').innerHTML = savedTasks;
+                }
+            }
+
+            function saveDailyTasks() {
+                localStorage.setItem('dailyTasks', dailyTasksTable.querySelector('tbody').innerHTML);
+            }
+
+            function setDayHeader() {
+                const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const today = new Date();
+                const todayIndex = today.getDay();
+                document.getElementById('dayHeader').textContent = days[todayIndex];
+
+                const columns = document.querySelectorAll(`#weeklyPlanner th:nth-child(${todayIndex + 2}), #weeklyPlanner td:nth-child(${todayIndex + 2})`);
+                columns.forEach(column => column.classList.add('bold'));
+            }
+
+            setDayHeader();
+            loadDailyTasks();
+            resetDailyTasks();
+
+            document.getElementById('addTask').addEventListener('click', function () {
+                const taskTime = document.getElementById('taskTime').value;
+                const taskName = document.getElementById('taskName').value;
+                const row = `<tr><td contenteditable="true">${taskTime}</td><td contenteditable="true">${taskName}</td></tr>`;
+                dailyTasksTable.querySelector('tbody').insertAdjacentHTML('beforeend', row);
+                saveDailyTasks();
+            });
+
+            dailyTasksTable.addEventListener('input', saveDailyTasks);
+        });
+    </script>
+</head>
+<body>
+
+    <h1 id="dayHeader"></h1>
+
+    <h2>ToDo</h2>
+    <div class="todo-input">
+        <input type="text" id="taskTime" placeholder="Time">
+        <input type="text" id="taskName" placeholder="Task">
+        <button id="addTask">Add Task</button>
+    </div>
+    <table id="dailyTasks">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Task</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+            <tr><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Maintenance</h2>
+    <table id="weeklyPlanner">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Shopping</th>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <th>Cleaning</th>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
