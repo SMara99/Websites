@@ -48,7 +48,6 @@ h1, h2 {
 .todo-input button {
     background-color: #BA79A0; /* New purple-pink color for the button */
     color: #fff;
-    cursor: pointer;
 }
 
 /* ToDo Table */
@@ -75,12 +74,6 @@ th, td {
     background-color: #e0e0e0; /* Light gray background color for non-highlighted cells */
 }
 
-/* Make the first [1][1] cell transparent */
-#weeklyPlanner td:first-child:first-child {
-    background-color: transparent; /* Transparent background */
-    color: transparent; /* Hide the text */
-}
-
 /* Updated color for first row and column */
 #weeklyPlanner th:first-child, #weeklyPlanner td:first-child {
     background-color: #BA79A0; /* New purple-pink color */
@@ -100,4 +93,14 @@ body {
 #weeklyPlanner th, #weeklyPlanner td {
     padding: 15px;
     text-align: center;
+}
+
+
+/* Maintenance content in the first row and first column remains unchanged */
+#weeklyPlanner th, #weeklyPlanner td:first-child {
+    color: #fff;
+}
+
+#weeklyPlanner .maintenance_cell {
+    color: #333; /* Dark gray color for all cells in maintenance table */
 }
