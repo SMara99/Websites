@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A personal website showcasing my activities both for entertainment and development">
-        <title>Mara</title>
-        <link rel="stylesheet" href="../css/index_styles.css">
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <div class="profile">
-            <aside class="left-column">
-                <img>
-                <div class="info">
-                    <h1>Șuteu Maria</h1>
-                    <a href="../html/schedule.html">
-                        <button>Go to Schedule</button>
-                    </a>
-
-                </div>
-            </aside>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Page</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    
+    <!-- Main Content -->
+    <div style="display: flex;">
+        <!-- Left Column (25% width) -->
+        <div id="left-column">
+            <div id="education">
+                <ul>
+                    <li>School/University 1</li>
+                    <li>School/University 2</li>
+                    <li>School/University 3</li>
+                    <!-- Add more schools/uni as needed -->
+                </ul>
+            </div>
         </div>
-
-        <header>
-            <h1>Mara</h1>
-        </header>
         
-        <!-- Link to the external JavaScript file -->
-        <script src="../js/indexscript.js"></script>
-    </body>
+        <!-- Right Column (75% width) -->
+        <div id="right-column">
+            <!-- Full Name centered in the middle of the right side -->
+            <div id="full-name">Full Name</div>
+            
+            <!-- Navigation Bar -->
+            <div id="nav-bar">
+                <a href="https://github.com/SMara99" id="github" class="social-link">GitHub</a>
+                <a href="https://linkedin.com" id="linkedin" class="social-link">LinkedIn</a>
+                <a href="https://leetcode.com" id="leetcode" class="social-link">LeetCode</a>
+                <!-- Add more links as needed -->
+            </div>
+        </div>
+    </div>
+</body>
 </html>

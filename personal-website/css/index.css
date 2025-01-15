@@ -1,0 +1,86 @@
+/* General reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+
+header h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Left Column Styling (should take full height of the page) */
+#left-column {
+    width: 25%;
+    background-color: #BA79A0;
+    padding: 20px;
+    height: 100vh; /* Full screen height */
+    position: fixed; /* Fix it to the left side */
+    top: 0;
+}
+
+/* Right Column (75% width, taking remaining space) */
+#right-column {
+    width: 75%;
+    margin-left: 25%; /* Push the right column next to the left column */
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #D162A4;
+}
+
+/* Full Name - Centered in the middle of the right side */
+#full-name {
+    padding: 20px;
+    color: white;
+    font-size: 2em;
+    border-radius: 10px;
+}
+
+/* Navigation Bar */
+#nav-bar {
+    margin-top: 20px;
+}
+
+.social-link {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    font-size: 14px;
+}
+
+.social-link:hover {
+    background-color: white;
+    color: #D162A4;
+}
+
+/* Responsive layout: Stack columns on smaller screens */
+@media (max-width: 768px) {
+    #left-column {
+        width: 100%;
+        position: relative; /* Remove fixed position on smaller screens */
+        height: auto;
+    }
+    
+    #right-column {
+        width: 100%;
+        margin-left: 0; /* Remove the left margin */
+    }
+
+    header {
+        height: auto;
+        padding: 20px;
+    }
+}
