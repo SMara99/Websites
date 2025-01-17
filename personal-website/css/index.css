@@ -7,7 +7,7 @@ body {
     flex-direction: column;
 }
 
-
+/* Header Styling */
 header h2 {
     margin: 0;
     font-size: 2em;
@@ -64,6 +64,42 @@ header h2 {
 .social-link:hover {
     background-color: white;
     color: #D162A4;
+}
+
+/* Third Column Styling */
+#third-column {
+    width: 75%;
+    margin-left: 25%;
+    background-color: #E6A8D7; /* Lilac background */
+    padding: 20px;
+    text-align: center;
+    height: calc(100vh - 40px); /* Full height minus the top padding */
+    box-sizing: border-box; /* Include padding in height calculation */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Category Navigation Bar */
+.category-nav {
+    display: flex;
+    flex-direction: column; /* Vertical alignment */
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.category-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px 0; /* Spacing between vertical links */
+}
+
+.category-link:hover {
+    border: 2px solid white; /* White outline on hover */
 }
 
 /* Responsive layout: Stack columns on smaller screens */
