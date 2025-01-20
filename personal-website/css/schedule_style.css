@@ -1,7 +1,7 @@
 /* Global styling */
 body {
-    font-family: 'Creepster', cursive, sans-serif; /* Dramatic font */
-    background-color: #D162A4; /* Page background color */
+    font-family: 'Creepster', cursive, sans-serif;
+    background-color: #D162A4;
     color: #f4f4f4;
     display: flex;
     flex-direction: column;
@@ -12,20 +12,39 @@ body {
     padding: 0;
 }
 
+/* Weekday and Date Styling */
+#weekday-date {
+    margin-top: 20px;
+}
+
+#weekday {
+    font-size: 2em;
+    color: #fff;
+}
+
+#currentDate {
+    font-size: 1.2em;
+    color: #fff;
+    margin-top: 5px;
+}
+
+/* Styling for headers */
 h1, h2 {
     font-family: 'Creepster', cursive, sans-serif;
     color: #FFF;
 }
 
 /* Styling for input area */
-.todo-input {
+.todo-input, .goal-input {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
 .todo-input input,
-.todo-input button {
+.goal-input input,
+.todo-input button,
+.goal-input button {
     padding: 10px;
     margin: 0 5px;
     font-size: 16px;
@@ -35,24 +54,40 @@ h1, h2 {
 }
 
 /* Input fields background color - whiter gray */
-.todo-input input {
+.todo-input input,
+.goal-input input {
     background-color: #e0e0e0; /* Whiter gray background for inputs */
 }
 
 /* Focus effects */
 .todo-input input:focus,
-.todo-input button:focus {
+.goal-input input:focus,
+.todo-input button:focus,
+.goal-input button:focus {
     outline: none;
 }
 
-.todo-input button {
+.todo-input button,
+.goal-input button {
     background-color: #BA79A0; /* New purple-pink color for the button */
     color: #fff;
 }
 
-/* ToDo Table */
-table {
-    width: 80%;
+/* Tables Container */
+.tables-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%; /* Take up most of the width */
+    margin-top: 20px;
+}
+
+/* ToDo and Goals Section */
+#todoSection, #goalsSection {
+    width: 48%; /* Each section takes 50% of screen width */
+}
+
+#dailyTasks, #goalsTable {
+    width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
@@ -63,25 +98,58 @@ th, td {
     text-align: left;
 }
 
-/* First row of ToDo table same as Maintenance */
+/* Ensure Check column has consistent width */
+#dailyTasks th:nth-child(3), #goalsTable th:nth-child(2) {
+    width: 100px; /* Set fixed width for the Check column */
+}
+
+/* Also apply the same width to the table data cells */
+#dailyTasks td:nth-child(3), #goalsTable td:nth-child(2) {
+    width: 100px; /* Make sure the column width is consistent */
+}
+
+/* ToDo Table Styling */
 #dailyTasks tr:first-child th {
-    background-color: #BA79A0; /* New purple-pink color */
+    background-color: #BA79A0;
     color: #fff;
+}
+
+/* Goals Table Styling */
+#goalsTable tr:first-child th {
+    background-color: #BA79A0;
+    color: #fff;
+}
+
+/* Color Scheme for ToDo and Goals Rows */
+.todo-row, .goal-row {
+    background-color: #e0e0e0; /* Light gray background color */
+    color: black;
+}
+
+.todo-row:nth-child(even), .goal-row:nth-child(even) {
+    background-color: #f2f2f2; /* Slightly lighter gray for even rows */
+}
+
+/* Styling for Checkboxes */
+.todo-row td input[type="checkbox"], .goal-row td input[type="checkbox"] {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 /* Maintenance Table - Adjusted Color for First Column and Row */
 #weeklyPlanner th, #weeklyPlanner td {
-    background-color: #e0e0e0; /* Light gray background color for non-highlighted cells */
+    background-color: #e0e0e0;
 }
 
-/* Updated color for first row and column */
 #weeklyPlanner th:first-child, #weeklyPlanner td:first-child {
-    background-color: #BA79A0; /* New purple-pink color */
+    background-color: #BA79A0;
     color: #fff;
 }
 
 #weeklyPlanner tr:first-child th {
-    background-color: #BA79A0; /* New purple-pink color for first row */
+    background-color: #BA79A0;
     color: #fff;
 }
 
@@ -95,12 +163,11 @@ body {
     text-align: center;
 }
 
-
 /* Maintenance content in the first row and first column remains unchanged */
 #weeklyPlanner th, #weeklyPlanner td:first-child {
     color: #fff;
 }
 
 #weeklyPlanner .maintenance_cell {
-    color: #333; /* Dark gray color for all cells in maintenance table */
+    color: #333;
 }

@@ -5,30 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule</title>
     <link rel="stylesheet" href="../css/schedule_style.css">
-    <script src="../js/schedule.js" defer></script> <!-- Linking the external JS file -->
+    <script src="../js/schedule.js" defer></script>
 </head>
 <body>
 
-    <h1 id="dayHeader"></h1>
-
-    <h2>ToDo</h2>
-    <div class="todo-input">
-        <input type="text" id="taskTime" placeholder="Time">
-        <input type="text" id="taskName" placeholder="Task">
-        <button id="addTask">Add Task</button>
+    <!-- Weekday and Date -->
+    <div id="weekday-date">
+        <div id="weekday"></div>
+        <div id="currentDate"></div>
     </div>
-    <table id="dailyTasks">
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>Task</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
 
+    <!-- Tables Container -->
+    <div class="tables-container">
+        <!-- ToDo Section -->
+        <div id="todoSection">
+            <h2>ToDo</h2>
+            <div class="todo-input">
+                <input type="text" id="taskTime" placeholder="Time">
+                <input type="text" id="taskName" placeholder="Task">
+                <button id="addTask">Add Task</button>
+            </div>
+            <!-- ToDo Table -->
+            <table id="dailyTasks">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Task</th>
+                        <th>Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Task rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Goals Section -->
+        <div id="goalsSection">
+            <h2>Goals</h2>
+            <div class="goal-input">
+                <input type="text" id="goalName" placeholder="Goal">
+                <button id="addGoal">Add Goal</button>
+            </div>
+            <table id="goalsTable">
+                <thead>
+                    <tr>
+                        <th>Goal</th>
+                        <th>Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Goal rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Maintenance Table -->
     <h2>Maintenance</h2>
     <table id="weeklyPlanner">
         <thead>

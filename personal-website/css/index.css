@@ -50,7 +50,7 @@ header h2 {
     margin-top: 20px;
 }
 
-.social-link {
+.social-link-github, .social-link-leetcode, .social-link-linkedin, .social-link-youtube {
     display: inline-block;
     margin: 10px;
     padding: 10px 20px;
@@ -61,9 +61,24 @@ header h2 {
     font-size: 14px;
 }
 
-.social-link:hover {
-    background-color: white;
-    color: #D162A4;
+.social-link-github:hover {
+    background-color: black;
+    color: white;
+}
+
+.social-link-leetcode:hover {
+    background: #FFA116;
+    color: white;
+}
+
+.social-link-linkedin:hover {
+    background: #0A66C2;
+    color: white;
+}
+
+.social-link-youtube:hover {
+    background: #FF0033;
+    color: white;
 }
 
 /* Third Column Styling */
