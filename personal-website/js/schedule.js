@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get current date
     const currentDate = new Date();
-    
+    const currentDateString = currentDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+
     // Get current weekday
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const weekdayName = weekdays[currentDate.getDay()];
@@ -15,6 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update weekday and date in the HTML
     document.getElementById('weekday').textContent = weekdayName;
     document.getElementById('currentDate').textContent = formattedDate;
+
+    // Check and clear tasks if a new day has started
+    checkAndClearTasksForNewDay(currentDateString);
+
+    // Load goals from localStorage if available
+    loadGoalsFromLocalStorage();
 });
 
 // Add task to ToDo
@@ -42,8 +49,12 @@ document.getElementById('addTask').addEventListener('click', function() {
         newRow.querySelector('.task-check').addEventListener('change', function() {
             if (this.checked) {
                 tableBody.removeChild(newRow);
+                saveTasksToLocalStorage();
             }
         });
+
+        // Save task to localStorage
+        saveTasksToLocalStorage();
 
         // Clear the input fields
         document.getElementById('taskTime').value = '';
@@ -55,26 +66,136 @@ document.getElementById('addTask').addEventListener('click', function() {
 document.getElementById('addGoal').addEventListener('click', function() {
     const goalName = document.getElementById('goalName').value;
 
+    // Allow goals to be added if there is a goal name
     if (goalName) {
         const tableBody = document.querySelector('#goalsTable tbody');
         const newRow = document.createElement('tr');
 
+        // Add new goal to table
         newRow.classList.add('goal-row');
-
         newRow.innerHTML = `
             <td>${goalName}</td>
             <td><input type="checkbox" class="goal-check" style="width: 25px; height: 25px;" /></td>
         `;
-
         tableBody.appendChild(newRow);
 
-        newRow.querySelector('.goal-check').addEventListener('change', function() {
-            if (this.checked) {
-                tableBody.removeChild(newRow);
-            }
-        });
+        // Add goal to localStorage
+        saveGoalToLocalStorage(goalName);
 
         // Clear the input field
         document.getElementById('goalName').value = '';
     }
 });
+
+function saveTasksToLocalStorage() {
+    // Get current date and format it as YYYY-MM-DD
+    const currentDate = new Date();
+    const currentDateString = currentDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+
+    // Get the tasks from the table
+    const tasks = [];
+    const taskRows = document.querySelectorAll('#dailyTasks tbody tr');
+
+    taskRows.forEach(row => {
+        const taskTime = row.querySelector('td:nth-child(1)').textContent;
+        const taskName = row.querySelector('td:nth-child(2)').textContent;
+        tasks.push({ taskTime, taskName });
+    });
+
+    // Save tasks to localStorage with the current date
+    localStorage.setItem(`tasks-${currentDateString}`, JSON.stringify(tasks));
+}
+
+function loadTasksFromLocalStorage() {
+    const currentDate = new Date();
+    const currentDateString = currentDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+
+    // Load tasks from localStorage for the current day
+    const tasks = JSON.parse(localStorage.getItem(`tasks-${currentDateString}`)) || [];
+
+    const tableBody = document.querySelector('#dailyTasks tbody');
+    tableBody.innerHTML = ''; // Clear existing table rows
+
+    // Add tasks to the table
+    tasks.forEach(taskData => {
+        const newRow = document.createElement('tr');
+        newRow.classList.add('todo-row');
+        newRow.innerHTML = `
+            <td>${taskData.taskTime}</td>
+            <td>${taskData.taskName}</td>
+            <td><input type="checkbox" class="task-check" style="width: 25px; height: 25px;" /></td>
+        `;
+        tableBody.appendChild(newRow);
+
+        // Add event listener to remove task when checked
+        newRow.querySelector('.task-check').addEventListener('change', function() {
+            if (this.checked) {
+                tableBody.removeChild(newRow);
+                saveTasksToLocalStorage();
+            }
+        });
+    });
+}
+
+function checkAndClearTasksForNewDay(currentDateString) {
+    const storedDate = localStorage.getItem('lastTaskDate');
+    const currentDate = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+
+    // If the stored date is different from today, clear the tasks
+    if (storedDate !== currentDate) {
+        localStorage.removeItem(`tasks-${storedDate}`);
+        localStorage.setItem('lastTaskDate', currentDate); // Update the last task date
+    }
+
+    // Load tasks for today (if available)
+    loadTasksFromLocalStorage();
+}
+
+function saveGoalToLocalStorage(goalName) {
+    // Get current date and the start of the week (Monday)
+    const currentDate = new Date();
+    const mondayDate = getMondayDate(currentDate);
+
+    // Get the existing goals from localStorage or initialize an empty array
+    const goals = JSON.parse(localStorage.getItem('goals')) || [];
+
+    // Add the new goal along with the start of the week date
+    goals.push({ goal: goalName, date: mondayDate });
+
+    // Save the updated goals to localStorage
+    localStorage.setItem('goals', JSON.stringify(goals));
+}
+
+function loadGoalsFromLocalStorage() {
+    const goals = JSON.parse(localStorage.getItem('goals')) || [];
+    const currentDate = new Date();
+    const mondayDate = getMondayDate(currentDate);
+
+    // Filter out goals that belong to the previous weeks
+    const currentWeekGoals = goals.filter(goalData => goalData.date === mondayDate);
+
+    const tableBody = document.querySelector('#goalsTable tbody');
+    tableBody.innerHTML = ''; // Clear existing table rows
+
+    // Add goals for the current week to the table
+    currentWeekGoals.forEach(goalData => {
+        const newRow = document.createElement('tr');
+        newRow.classList.add('goal-row');
+        newRow.innerHTML = `
+            <td>${goalData.goal}</td>
+            <td><input type="checkbox" class="goal-check" style="width: 25px; height: 25px;" /></td>
+        `;
+        tableBody.appendChild(newRow);
+    });
+}
+
+function getMondayDate(date) {
+    // Get the current date and adjust to get the Monday of the current week
+    const monday = new Date(date);
+    const day = monday.getDay(),
+          diff = monday.getDate() - day + (day == 0 ? -6 : 1); // Adjust when Sunday (day 0)
+    monday.setDate(diff);
+    monday.setHours(0, 0, 0, 0); // Set to midnight
+
+    return monday.toISOString().split('T')[0]; // Return the date in YYYY-MM-DD format
+}
