@@ -50,7 +50,7 @@ header h2 {
     margin-top: 20px;
 }
 
-.social-link-github, .social-link-leetcode, .social-link-linkedin, .social-link-youtube {
+.social-link-github, .social-link-leetcode, .social-link-linkedin, .social-link-youtube, .social-link-itch {
     display: inline-block;
     margin: 10px;
     padding: 10px 20px;
@@ -64,6 +64,11 @@ header h2 {
 .social-link-github:hover {
     background-color: black;
     color: white;
+}
+
+.social-link-itch:hover {
+    background: grey;
+    color: white
 }
 
 .social-link-leetcode:hover {
