@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\RecipeAPI\\RecipeApi.csproj": {}
+    "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\backend\\RecipeAPI\\RecipeApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\RecipeAPI\\RecipeApi.csproj": {
+    "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\backend\\RecipeAPI\\RecipeApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\RecipeAPI\\RecipeApi.csproj",
+        "projectUniqueName": "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\backend\\RecipeAPI\\RecipeApi.csproj",
         "projectName": "RecipeApi",
-        "projectPath": "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\RecipeAPI\\RecipeApi.csproj",
+        "projectPath": "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\backend\\RecipeAPI\\RecipeApi.csproj",
         "packagesPath": "C:\\Users\\Mara S\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\RecipeAPI\\obj\\",
+        "outputPath": "C:\\Users\\Mara S\\Documents\\GitHub\\Websites\\personal-website\\backend\\RecipeAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
