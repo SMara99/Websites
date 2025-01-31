@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load goals from localStorage if available
     loadGoalsFromLocalStorage();
+
+    // Load random from localStorage
+    loadRandomFromLocalStorage();
 });
 
 // Add task to ToDo
@@ -86,6 +89,31 @@ document.getElementById('addGoal').addEventListener('click', function() {
         document.getElementById('goalName').value = '';
     }
 });
+
+// Add random to Life
+document.getElementById('addRandom').addEventListener('click', function() {
+    const randomName = document.getElementById('randomName').value;
+
+    // Allow random to be added if there is a name
+    if (randomName) {
+        const tableBody = document.querySelector('#randomTable tbody');
+        const newRow = document.createElement('tr');
+
+        // Add new random to table
+        newRow.classList.add('random-row');
+        newRow.innerHTML = `
+            <td>${randomName}</td>
+            <td><input type="checkbox" class="random-check" style="width: 25px; height: 25px;" /></td>
+        `;
+        tableBody.appendChild(newRow);
+
+        // Add random to localStorage
+        saveRandomToLocalStorage(randomName);
+
+        // Clear the input field
+        document.getElementById('randomName').value = '';
+    }
+})
 
 function saveTasksToLocalStorage() {
     // Get current date and format it as YYYY-MM-DD
@@ -155,12 +183,13 @@ function saveGoalToLocalStorage(goalName) {
     // Get current date and the start of the week (Monday)
     const currentDate = new Date();
     const mondayDate = getMondayDate(currentDate);
+    const isChecked = false;
 
     // Get the existing goals from localStorage or initialize an empty array
     const goals = JSON.parse(localStorage.getItem('goals')) || [];
 
     // Add the new goal along with the start of the week date
-    goals.push({ goal: goalName, date: mondayDate });
+    goals.push({ goal: goalName, date: mondayDate, checked: isChecked });
 
     // Save the updated goals to localStorage
     localStorage.setItem('goals', JSON.stringify(goals));
@@ -183,10 +212,79 @@ function loadGoalsFromLocalStorage() {
         newRow.classList.add('goal-row');
         newRow.innerHTML = `
             <td>${goalData.goal}</td>
-            <td><input type="checkbox" class="goal-check" style="width: 25px; height: 25px;" /></td>
+            <td><input type="checkbox" class="goal-check" style="width: 25px; height: 25px;" ${goalData.checked ? 'checked' : ''} /></td>
         `;
         tableBody.appendChild(newRow);
+    
+
+        // Add event listener to remove task when checked
+        newRow.querySelector('.goal-check').addEventListener('change', function() {
+            if (this.checked) {
+                tableBody.removeChild(newRow);
+                saveUpdatedGoalToLocalStorage();
+            }
+        });
     });
+}
+
+// Function to update localStorage after deleting a goal
+function saveUpdatedGoalToLocalStorage() {
+    const updatedGoals = [];
+    document.querySelectorAll('#goalsTable tbody tr').forEach(row => {
+        const goalText = row.querySelector('td:first-child').textContent;
+        const isChecked = row.querySelector('.goal-check').checked;
+        updatedGoals.push({ goal: goalText, date: getMondayDate(new Date()), checked: isChecked });
+    });
+
+    localStorage.setItem('goals', JSON.stringify(updatedGoals));
+}
+
+function saveRandomToLocalStorage(randomName) {
+    // Get the existing random from localStorage or initialize an empty array
+    const random = JSON.parse(localStorage.getItem('random')) || [];
+
+    // Add the new goal along with the start of the week date
+    random.push({ random: randomName});
+
+    // Save the updated goals to localStorage
+    localStorage.setItem('random', JSON.stringify(random));
+}
+
+function loadRandomFromLocalStorage() {
+    const random = JSON.parse(localStorage.getItem('random')) || [];
+
+    const tableBody = document.querySelector('#randomTable tbody');
+    tableBody.innerHTML = ''; // Clear existing table rows
+
+    // Add random 
+    random.forEach(randomData => {
+        const newRow = document.createElement('tr');
+        newRow.classList.add('random-row');
+        newRow.innerHTML = `
+            <td>${randomData.random}</td>
+            <td><input type="checkbox" class="random-check" style="width: 25px; height: 25px;" /></td>
+        `;
+        tableBody.appendChild(newRow);
+
+        // Add event listener to remove task when checked
+        newRow.querySelector('.random-check').addEventListener('change', function() {
+            if (this.checked) {
+                tableBody.removeChild(newRow);
+                saveUpdatedRandomToLocalStorage();
+            }
+        });
+    });
+}
+
+// Function to update localStorage after deleting a random item
+function saveUpdatedRandomToLocalStorage() {
+    const updatedRandom = [];
+    document.querySelectorAll('#randomTable tbody tr').forEach(row => {
+        const randomText = row.querySelector('td:first-child').textContent;
+        updatedRandom.push({ random: randomText });
+    });
+
+    localStorage.setItem('random', JSON.stringify(updatedRandom));
 }
 
 function getMondayDate(date) {

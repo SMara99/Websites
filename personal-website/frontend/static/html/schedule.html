@@ -19,11 +19,11 @@
     <div class="tables-container">
         <!-- ToDo Section -->
         <div id="todoSection">
-            <h2>ToDo</h2>
+            <h2>ToDo Today</h2>
             <div class="todo-input">
                 <input type="text" id="taskTime" placeholder="Time">
                 <input type="text" id="taskName" placeholder="Task">
-                <button id="addTask">Add Task</button>
+                <button id="addTask">Add</button>
             </div>
             <!-- ToDo Table -->
             <table id="dailyTasks">
@@ -42,10 +42,10 @@
 
         <!-- Goals Section -->
         <div id="goalsSection">
-            <h2>Goals</h2>
+            <h2>Weekly Goals</h2>
             <div class="goal-input">
                 <input type="text" id="goalName" placeholder="Goal">
-                <button id="addGoal">Add Goal</button>
+                <button id="addGoal">Add</button>
             </div>
             <table id="goalsTable">
                 <thead>
@@ -58,6 +58,24 @@
                     <!-- Goal rows will be dynamically added here -->
                 </tbody>
             </table>
+        </div>
+
+        <div id="randomSection">
+            <h2>Life</h2>
+            <div class="random-input">
+                <input type="text" id="randomName" placeholder="Random">
+                <button id="addRandom">Add</button>
+            </div>
+            <table id="randomTable">
+                <thead>
+                    <th>Random</th>
+                    <th>Check</th>
+                </thead>
+                <tbody>
+                    <!-- Random rows will be dynamically added here -->
+                </tbody>
+            </table>
+
         </div>
     </div>
 

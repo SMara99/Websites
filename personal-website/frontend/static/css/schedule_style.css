@@ -35,7 +35,7 @@ h1, h2 {
 }
 
 /* Styling for input area */
-.todo-input, .goal-input {
+.todo-input, .goal-input, .random-input {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
@@ -43,8 +43,10 @@ h1, h2 {
 
 .todo-input input,
 .goal-input input,
+.random-input input,
 .todo-input button,
-.goal-input button {
+.goal-input button,
+.random-input button {
     padding: 10px;
     margin: 0 5px;
     font-size: 16px;
@@ -55,20 +57,24 @@ h1, h2 {
 
 /* Input fields background color - whiter gray */
 .todo-input input,
-.goal-input input {
+.goal-input input,
+.random-input input {
     background-color: #e0e0e0; /* Whiter gray background for inputs */
 }
 
 /* Focus effects */
 .todo-input input:focus,
 .goal-input input:focus,
+.random-input input:focus,
 .todo-input button:focus,
-.goal-input button:focus {
+.goal-input button:focus,
+.random-input button:focus {
     outline: none;
 }
 
 .todo-input button,
-.goal-input button {
+.goal-input button,
+.random-input button {
     background-color: #BA79A0; /* New purple-pink color for the button */
     color: #fff;
 }
@@ -82,11 +88,11 @@ h1, h2 {
 }
 
 /* ToDo and Goals Section */
-#todoSection, #goalsSection {
-    width: 48%; /* Each section takes 50% of screen width */
+#todoSection, #goalsSection, #randomSection {
+    width: 30%; /* Each section takes 50% of screen width */
 }
 
-#dailyTasks, #goalsTable {
+#dailyTasks, #goalsTable, #randomTable {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -99,39 +105,33 @@ th, td {
 }
 
 /* Ensure Check column has consistent width */
-#dailyTasks th:nth-child(3), #goalsTable th:nth-child(2) {
-    width: 100px; /* Set fixed width for the Check column */
+#dailyTasks th:nth-child(3), #goalsTable th:nth-child(2), #randomTable th:nth-child(2) {
+    width: 60px; /* Set fixed width for the Check column */
 }
 
 /* Also apply the same width to the table data cells */
-#dailyTasks td:nth-child(3), #goalsTable td:nth-child(2) {
-    width: 100px; /* Make sure the column width is consistent */
+#dailyTasks td:nth-child(3), #goalsTable td:nth-child(2), #randomTable td:nth-child(2) {
+    width: 60px; /* Make sure the column width is consistent */
 }
 
-/* ToDo Table Styling */
-#dailyTasks tr:first-child th {
-    background-color: #BA79A0;
-    color: #fff;
-}
-
-/* Goals Table Styling */
-#goalsTable tr:first-child th {
+/* Table Styling */
+#dailyTasks tr:first-child th, #goalsTable tr:first-child th, #randomTable tr:first-child th {
     background-color: #BA79A0;
     color: #fff;
 }
 
 /* Color Scheme for ToDo and Goals Rows */
-.todo-row, .goal-row {
+.todo-row, .goal-row, .random-row {
     background-color: #e0e0e0; /* Light gray background color */
     color: black;
 }
 
-.todo-row:nth-child(even), .goal-row:nth-child(even) {
+.todo-row:nth-child(even), .goal-row:nth-child(even), .random-row:nth-child(even) {
     background-color: #f2f2f2; /* Slightly lighter gray for even rows */
 }
 
 /* Styling for Checkboxes */
-.todo-row td input[type="checkbox"], .goal-row td input[type="checkbox"] {
+.todo-row td input[type="checkbox"], .goal-row td input[type="checkbox"], .random-row td input[type="checkbox"] {
     width: 35px;
     height: 35px;
     margin: 5px;
