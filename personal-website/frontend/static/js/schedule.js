@@ -20,11 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check and clear tasks if a new day has started
     checkAndClearTasksForNewDay(currentDateString);
 
-    // Load goals from localStorage if available
+    // Load from localStorage if available
     loadGoalsFromLocalStorage();
-
-    // Load random from localStorage
     loadRandomFromLocalStorage();
+    loadItemFromLocalStorage();
 });
 
 // Add task to ToDo
@@ -112,6 +111,35 @@ document.getElementById('addRandom').addEventListener('click', function() {
 
         // Clear the input field
         document.getElementById('randomName').value = '';
+    }
+})
+
+// Add Item to Shopping List
+document.getElementById('addItem').addEventListener('click', function() {
+    const itemName = document.getElementById('itemName').value;
+
+    if (itemName) {
+        const tableBody = document.querySelector('#itemTable tbody');
+        const newRow = document.createElement('tr');
+        
+        newRow.classList.add('item-row');
+        newRow.innerHTML = `
+            <td>${itemName}</td>
+            <td><input type="checkbox" class="item-check" style="width: 25px; height: 25px;" /></td>
+        `;
+        tableBody.appendChild(newRow);
+
+        // Add event listener to checkbox to update localStorage when checked
+        newRow.querySelector('.item-check').addEventListener('change', function() {
+            if (this.checked) {
+                tableBody.removeChild(newRow);
+                saveUpdatedItemToLocalStorage();
+            }
+        });
+
+        // Save item to localStorage
+        saveItemToLocalStorage(itemName);
+        document.getElementById('itemName').value = '';
     }
 })
 
@@ -285,6 +313,48 @@ function saveUpdatedRandomToLocalStorage() {
     });
 
     localStorage.setItem('random', JSON.stringify(updatedRandom));
+}
+
+function saveItemToLocalStorage(itemName){
+    const item = JSON.parse(localStorage.getItem('item')) || [];
+    item.push({ item: itemName});
+    localStorage.setItem('item', JSON.stringify(item));
+}
+
+function loadItemFromLocalStorage(){
+    const items = JSON.parse(localStorage.getItem('item')) || [];
+
+    const tableBody = document.querySelector('#itemTable tbody');
+    tableBody.innerHTML = ''; // Clear existing table rows
+
+    // Add items from localStorage to the table
+    items.forEach(itemData => {
+        const newRow = document.createElement('tr');
+        newRow.classList.add('item-row');
+        newRow.innerHTML = `
+            <td>${itemData.item}</td>
+            <td><input type="checkbox" class="item-check" style="width: 25px; height: 25px;" /></td>
+        `;
+        tableBody.appendChild(newRow);
+
+        // Add event listener to remove item when checked
+        newRow.querySelector('.item-check').addEventListener('change', function() {
+            if (this.checked) {
+                tableBody.removeChild(newRow);
+                saveUpdatedItemToLocalStorage();
+            }
+        });
+    });
+}
+
+function saveUpdatedItemToLocalStorage() {
+    const updatedItems = [];
+    document.querySelectorAll('#itemTable tbody tr').forEach(row => {
+        const itemText = row.querySelector('td:first-child').textContent;
+        updatedItems.push({ item: itemText });
+    });
+
+    localStorage.setItem('item', JSON.stringify(updatedItems));
 }
 
 function getMondayDate(date) {
