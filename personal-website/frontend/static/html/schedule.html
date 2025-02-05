@@ -15,8 +15,16 @@
         <div id="currentDate"></div>
     </div>
 
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li data-target="tables-container">Schedule</li>
+            <li data-target="maintenance-container">Maintenance</li>
+            <li data-target="shopping-container">Food</li>
+        </ul>
+    </nav>
+
     <!-- Tables Container -->
-    <div class="tables-container">
+    <div id="tables-container" class="container">
         <!-- ToDo Section -->
         <div id="todoSection">
             <h2>ToDo Today</h2>
@@ -80,55 +88,56 @@
     </div>
 
     <!-- Maintenance Table -->
-    <h2>Maintenance</h2>
-    <table id="weeklyPlanner">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Saturday</th>
-                <th>Sunday</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Cooking</th>
-                <td></td> 
-                <td></td> 
-                <td class="maintenance_cell">Supa</td> 
-                <td></td> 
-                <td class="maintenance_cell">Carne & Garnitura</td> 
-                <td></td> 
-                <td class="maintenance_cell">Fast Food</td> 
-            </tr>
-            <tr>
-                <th>Shopping</th>
-                <td class="maintenance_cell">Big run</td>
-                <td class="maintenance_cell">Water</td>
-                <td></td>
-                <td class="maintenance_cell">Small run</td>
-                <td></td>
-                <td class="maintenance_cell">Water</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Cleaning</th>
-                <td></td>
-                <td class="maintenance_cell">Bucataria</td>
-                <td class="maintenance_cell">Dormitor</td>
-                <td class="maintenance_cell">Living</td>
-                <td class="maintenance_cell">Balcon</td>
-                <td class="maintenance_cell">Baia</td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="maintenance-container" class="container">
+        <table id="weeklyPlanner">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Cooking</th>
+                    <td></td> 
+                    <td></td> 
+                    <td class="maintenance_cell">Supa</td> 
+                    <td></td> 
+                    <td class="maintenance_cell">Carne & Garnitura</td> 
+                    <td></td> 
+                    <td class="maintenance_cell">Fast Food</td> 
+                </tr>
+                <tr>
+                    <th>Shopping</th>
+                    <td class="maintenance_cell">Big run</td>
+                    <td class="maintenance_cell">Water</td>
+                    <td></td>
+                    <td class="maintenance_cell">Small run</td>
+                    <td></td>
+                    <td class="maintenance_cell">Water</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Cleaning</th>
+                    <td></td>
+                    <td class="maintenance_cell">Bucataria</td>
+                    <td class="maintenance_cell">Dormitor</td>
+                    <td class="maintenance_cell">Living</td>
+                    <td class="maintenance_cell">Balcon</td>
+                    <td class="maintenance_cell">Baia</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <div class="shopping-container">
+    <div id="shopping-container" class="container">
         <div id="shoppingListSection">
             <h2>Shopping List</h2>
             <div class="item-input">

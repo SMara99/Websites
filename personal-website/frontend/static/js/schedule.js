@@ -26,6 +26,25 @@ document.addEventListener('DOMContentLoaded', function() {
     loadItemFromLocalStorage();
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const navItems = document.querySelectorAll(".nav-links li");
+    const sections = document.querySelectorAll(".container");
+
+    // Hide all sections initially
+    sections.forEach(section => section.style.display = "none");
+
+    navItems.forEach(item => {
+        item.addEventListener("click", function() {
+            // Hide all sections
+            sections.forEach(section => section.style.display = "none");
+
+            // Get the target section and show it
+            const targetId = this.getAttribute("data-target");
+            document.getElementById(targetId).style.display = "flex";
+        });
+    });
+});
+
 // Add task to ToDo
 document.getElementById('addTask').addEventListener('click', function() {
     const taskTime = document.getElementById('taskTime').value;

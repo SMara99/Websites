@@ -28,7 +28,35 @@ body {
     margin-top: 5px;
 }
 
-/* Styling for headers */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    color: white;
+    background-color: #BA79A0;
+    text-align: center;
+    width: 90%;
+    border: 5px solid white;
+    line-height: 60px;
+    height: 60px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0;
+    font-size: larger;
+    border-right: 5px solid white;
+    display: flex;
+    padding: 0px 25px;
+    height: 100%;
+    cursor: pointer;
+}
+
 h1, h2 {
     font-family: 'Creepster', cursive, sans-serif;
     color: #FFF;
@@ -72,10 +100,11 @@ h1, h2 {
     background-color: #BA79A0; /* New purple-pink color for the button */
     color: #fff;
 }
-
+.container {
+    display: none;
+}
 /* Tables Container */
-.tables-container {
-    display: flex;
+#tables-container {
     justify-content: space-between;
     width: 90%; /* Take up most of the width */
     margin-top: 20px;
@@ -88,7 +117,12 @@ h1, h2 {
     justify-content: center; /* Center content vertically */
     text-align: center;  /* Center text inside */
     padding: 20px;
+    margin-top: 20px;
     
+}
+
+#maintenance-container {
+    margin-top: 20px;
 }
 
 /* ToDo and Goals Section */
