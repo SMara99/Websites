@@ -1,0 +1,331 @@
+/* ===========================
+   Global Styles
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: white;
+    transition: background-color 2s ease;
+}
+
+
+/* ===========================
+   Header & Calendar Section
+   =========================== */
+header {
+    background-color: white;
+    color: #333;
+    padding: 1rem;
+    text-align: center;
+    transition: background-color 2s ease;
+}
+
+.calendar-section {
+    margin-bottom: 1rem;
+}
+
+.calendar-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+
+/* ===========================
+   Expand/Minimize Toggle Button
+   =========================== */
+.toggle-view-btn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #ddd;
+    background-color: white;
+    color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.toggle-view-btn:hover {
+    border-color: #999;
+    background-color: #f5f5f5;
+    transform: scale(1.1);
+}
+
+.toggle-view-btn.expanded {
+    transform: rotate(180deg);
+}
+
+.toggle-view-btn.expanded:hover {
+    transform: rotate(180deg) scale(1.1);
+}
+
+
+/* ===========================
+   Week Display
+   =========================== */
+.week-display {
+    display: flex;
+    gap: 0.575rem;
+    justify-content: center;
+}
+
+.day-cell {
+    min-width: 57.5px;
+    height: 80.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #999;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.day-cell:hover {
+    border-color: #666;
+}
+
+.day-cell .day-name {
+    font-size: 0.8625rem;
+    color: #666;
+    margin-bottom: 0.2875rem;
+}
+
+.day-cell .day-number {
+    font-size: 1.4375rem;
+    font-weight: bold;
+}
+
+/* Current Day - Iridescent Glass Effect */
+.day-cell.current-day {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(200, 220, 255, 0.6) 25%,
+        rgba(220, 200, 255, 0.6) 50%,
+        rgba(200, 255, 220, 0.6) 75%,
+        rgba(255, 255, 255, 0.9) 100%);
+    border: 2px solid rgba(150, 150, 255, 0.3);
+    box-shadow:
+        0 4px 15px rgba(200, 200, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(200, 200, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transform: scale(1.05);
+}
+
+.day-cell.current-day:hover {
+    box-shadow:
+        0 6px 20px rgba(200, 200, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -1px 0 rgba(200, 200, 255, 0.3);
+}
+
+
+/* ===========================
+   Month Display
+   =========================== */
+.month-display {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0.5rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.month-cell {
+    min-width: 60px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.month-cell:hover {
+    border-color: #999;
+    background-color: #f5f5f5;
+}
+
+/* Current Month - Iridescent Glass Effect */
+.month-cell.current-month {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(200, 220, 255, 0.6) 25%,
+        rgba(220, 200, 255, 0.6) 50%,
+        rgba(200, 255, 220, 0.6) 75%,
+        rgba(255, 255, 255, 0.9) 100%);
+    border: 2px solid rgba(150, 150, 255, 0.3);
+    box-shadow:
+        0 4px 15px rgba(200, 200, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(200, 200, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transform: scale(1.05);
+}
+
+.month-cell.current-month:hover {
+    box-shadow:
+        0 6px 20px rgba(200, 200, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -1px 0 rgba(200, 200, 255, 0.3);
+}
+
+
+/* ===========================
+   Navigation
+   =========================== */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: font-size 0.3s ease;
+}
+
+nav a:hover {
+    font-size: 1.1rem;
+}
+
+
+/* ===========================
+   Main Content
+   =========================== */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem 5rem 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: #555;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+
+/* ===========================
+   Tasks Section
+   =========================== */
+.tasks-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    align-items: start;
+}
+
+.task-list {
+    border: 2px solid #999;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    min-height: 300px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.task-list.center-list {
+    border-color: #666;
+    border-width: 3px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+}
+
+.task-list.left-list {
+    opacity: 0.7;
+    transform: scale(0.95);
+}
+
+.task-list.right-list {
+    opacity: 0.7;
+    transform: scale(0.95);
+}
+
+.task-list h3 {
+    border-bottom: 2px solid #999;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.task-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list ul li {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-list ul li:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: #999;
+}
+
+
+/* ===========================
+   Footer
+   =========================== */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
