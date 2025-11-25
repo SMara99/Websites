@@ -5,21 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Household Planner</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>📓</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
     <main>
         <aside class="sidebar">
-            <h3>Filters</h3>
             <nav>
                 <ul>
+                    <li class="filter-icon">☰</li>
                     <li><a href="#" class="filter-btn active" data-filter="frequency" onclick="setFilter('frequency'); return false;">Frequency</a></li>
                     <li><a href="#" class="filter-btn" data-filter="area" onclick="setFilter('area'); return false;">Area</a></li>
                     <li><a href="#" class="filter-btn" data-filter="hybrid" onclick="setFilter('hybrid'); return false;">Hybrid</a></li>
                     <li><a href="#" class="filter-btn" data-filter="minimal" onclick="setFilter('minimal'); return false;">Minimal</a></li>
                 </ul>
             </nav>
+            
+            <!-- Rooms Container (for Area filter) -->
+            <div class="rooms-container" id="roomsContainer" style="display: none;">
+                <div class="room-card" data-room="kitchen">
+                    <h4>Kitchen</h4>
+                </div>
+                <div class="room-card" data-room="bathroom">
+                    <h4>Bathroom</h4>
+                </div>
+                <div class="room-card" data-room="bedroom">
+                    <h4>Bedroom</h4>
+                </div>
+                <div class="room-card" data-room="living-room">
+                    <h4>Living Room</h4>
+                </div>
+            </div>
+            
+            <!-- Minimal Categories Container (for Minimal filter) -->
+            <div class="rooms-container" id="minimalContainer" style="display: none;">
+                <div class="room-card" data-category="cleaning">
+                    <h4>Cleaning</h4>
+                </div>
+                <div class="room-card" data-category="deep-cleaning">
+                    <h4>Deep Cleaning</h4>
+                </div>
+                <div class="room-card" data-category="replacements">
+                    <h4>Replacements</h4>
+                </div>
+                <div class="room-card" data-category="inspections">
+                    <h4>Inspections</h4>
+                </div>
+                <div class="room-card" data-category="seasonal">
+                    <h4>Seasonal</h4>
+                </div>
+            </div>
+            
+            <!-- Frequency Periods Container (for Frequency filter) -->
+            <div class="rooms-container" id="frequencyContainer" style="display: none;">
+                <div class="room-card" data-period="weekly">
+                    <h4>Weekly</h4>
+                </div>
+                <div class="room-card" data-period="biweekly">
+                    <h4>Biweekly</h4>
+                </div>
+                <div class="room-card" data-period="monthly">
+                    <h4>Monthly</h4>
+                </div>
+                <div class="room-card" data-period="bimonthly">
+                    <h4>Bimonthly</h4>
+                </div>
+                <div class="room-card" data-period="semi-annual">
+                    <h4>Semi Annual</h4>
+                </div>
+                <div class="room-card" data-period="yearly">
+                    <h4>Yearly</h4>
+                </div>
+            </div>
         </aside>
 
         <!-- Main Content -->

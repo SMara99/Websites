@@ -81,7 +81,3 @@ See `docs/database-schema.md` for complete database structure including:
 - Rooms
 - Frequencies
 - Maintenance Items
-
-## License
-
-MIT

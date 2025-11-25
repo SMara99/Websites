@@ -73,7 +73,18 @@ function setFilter(filterType) {
         btn.classList.toggle('active', btn.dataset.filter === filterType);
     });
     
-    // Reload items based on filter
+    // Manage container visibility
+    const containers = {
+        area: 'roomsContainer',
+        minimal: 'minimalContainer',
+        frequency: 'frequencyContainer'
+    };
+    
+    Object.entries(containers).forEach(([filter, containerId]) => {
+        const container = document.getElementById(containerId);
+        container.style.display = filterType === filter ? 'grid' : 'none';
+    });
+    
     loadMaintenanceItems();
 }
 
@@ -88,14 +99,15 @@ function loadMaintenanceItems() {
     const tasksList = document.getElementById('todayTasksList');
     if (!tasksList) return;
     
-    tasksList.innerHTML = '';
-    
-    // Create 5 empty task lines
+    const fragment = document.createDocumentFragment();
     for (let i = 0; i < 5; i++) {
         const taskLine = document.createElement('div');
         taskLine.className = 'task-line';
-        tasksList.appendChild(taskLine);
+        fragment.appendChild(taskLine);
     }
+    
+    tasksList.innerHTML = '';
+    tasksList.appendChild(fragment);
     
     // TODO: Load items from database based on currentFilter
 }
