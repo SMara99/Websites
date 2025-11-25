@@ -1,0 +1,199 @@
+/* ================================================
+   GLOBAL STYLES
+   ================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --primary-bg: #f8f9fa;
+    --secondary-bg: white;
+    --border-color: #ddd;
+    --border-light: #e9ecef;
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text-muted: #666;
+    --text-light: #bbb;
+    --accent-hover: #e9ecef;
+    
+    /* Glass Effect */
+    --glass-gradient: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.9),
+        rgba(200, 220, 255, 0.6) 25%,
+        rgba(220, 200, 255, 0.6) 50%,
+        rgba(200, 255, 220, 0.6) 75%,
+        rgba(255, 255, 255, 0.9));
+    --glass-border: 2px solid rgba(150, 150, 255, 0.3);
+    --glass-shadow: 0 4px 15px rgba(200, 200, 255, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                    inset 0 -1px 0 rgba(200, 200, 255, 0.2);
+    --glass-shadow-hover: 0 6px 20px rgba(200, 200, 255, 0.4),
+                          inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                          inset 0 -1px 0 rgba(200, 200, 255, 0.3);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--secondary-bg);
+    transition: background-color 2s ease;
+}
+
+/* ================================================
+   LAYOUT
+   ================================================ */
+main {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 2rem 0.5rem 2rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.page-title:hover {
+    color: var(--text-muted);
+}
+
+.full-date {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0.5rem 0 0 0;
+    text-align: center;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--primary-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--accent-hover);
+    color: var(--text-primary);
+    padding-left: 1.25rem;
+}
+
+/* Active filter button */
+.sidebar nav ul li a.filter-btn.active {
+    background-color: #667eea;
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar nav ul li a.filter-btn.active:hover {
+    background-color: #5568d3;
+    padding-left: 1rem;
+}
+
+
+
+.tasks-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Task List */
+.task-list {
+    width: 250px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--secondary-bg);
+    box-shadow: var(--shadow-sm);
+}
+
+.task-list h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.task-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.task-line {
+    min-height: 24px;
+    position: relative;
+    cursor: text;
+}
+
+.task-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0.5px;
+    background-color: #999;
+}
