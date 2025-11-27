@@ -1,10 +1,12 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{1AE8ACA6-933B-BF2A-3671-3E2EAC007D16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApi", "backend\RecipeAPI\RecipeApi.csproj", "{DA3949E0-9BEC-1EDB-87A2-99CD8FAF18BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicalAssessment", "..\..\..\..\Desktop\Eu\Jobs\InternshipTest\TechnicalAssessment\TechnicalAssessment.csproj", "{4869AE96-6EA1-4952-964B-82E4852A613A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,6 +18,10 @@ Global
 		{DA3949E0-9BEC-1EDB-87A2-99CD8FAF18BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA3949E0-9BEC-1EDB-87A2-99CD8FAF18BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA3949E0-9BEC-1EDB-87A2-99CD8FAF18BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4869AE96-6EA1-4952-964B-82E4852A613A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4869AE96-6EA1-4952-964B-82E4852A613A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4869AE96-6EA1-4952-964B-82E4852A613A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4869AE96-6EA1-4952-964B-82E4852A613A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

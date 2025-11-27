@@ -1,0 +1,63 @@
+/* Global styling */
+body {
+    font-family: 'Creepster', cursive, sans-serif;
+    background-color: #BEF0FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+/* Weekday and Date Styling */
+#weekday-date {
+    margin-top: 20px;
+}
+
+#weekday {
+    font-size: 2em;
+    color: #080808;
+}
+
+#currentDate {
+    font-size: 1em;
+    color: #070707;
+    margin-top: 5px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width: 10%;
+    background: #b9dae4;
+    transition: width 0.3s;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.sidebar li {
+    top: 0;
+    left: 0;
+}
+
+ .sidebar.collapsed {
+    width: 5%;
+}
+
+.sidebar ul li img {
+    width: 50%;
+}
+
+.title img {
+    max-width: 300px;
+    height: auto;
+}
