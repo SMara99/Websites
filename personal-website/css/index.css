@@ -1,4 +1,4 @@
-/* ==================== GLOBAL STYLES ==================== */
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,29 +6,26 @@
 }
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
     height: 100vh;
     display: flex;
-    flex-direction: column;
 }
 
 .main-container {
     display: flex;
+    width: 100%;
 }
 
-/* ==================== LEFT SIDEBAR ==================== */
+/* Left Sidebar */
 #left-column {
     width: 25%;
     background-color: #E5C4D8;
     padding: 20px;
     height: 100vh;
     position: fixed;
-    top: 0;
     overflow-y: auto;
 }
 
-/* Profile Card with Pokemon Style Frame */
 #profile-card {
     margin-bottom: 30px;
     display: flex;
@@ -93,32 +90,28 @@ body {
     background-repeat: repeat;
 }
 
-/* ==================== RIGHT CONTENT AREA ==================== */
+/* Right Content Area */
 #right-column {
     width: 75%;
     margin-left: 25%;
     padding: 20px;
-    text-align: center;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    overflow-y: auto;
+    min-height: 100vh;
     background-color: #F4C4DD;
 }
 
 #full-name {
-    padding: 20px;
     color: white;
     font-size: 2em;
-    border-radius: 10px;
+    text-align: center;
 }
 
-/* Social Media Navigation */
 #nav-bar {
-    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
+/* Social Links */
 .social-link-github,
 .social-link-instagram,
 .social-link-leetcode,
@@ -126,114 +119,57 @@ body {
 .social-link-youtube,
 .social-link-itch {
     display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
+    padding: 8px 16px;
     text-decoration: none;
     border: 2px solid white;
     border-radius: 50px;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     transition: all 0.3s ease;
 }
 
-.social-link-github {
-    background-color: #181717;
-    border-color: #181717;
-}
+.social-link-github { background-color: #181717; border-color: #181717; }
+.social-link-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border: none; }
+.social-link-itch { background: #FA5C5C; border-color: #FA5C5C; }
+.social-link-leetcode { background: #FFA116; border-color: #FFA116; }
+.social-link-linkedin { background: #0A66C2; border-color: #0A66C2; }
+.social-link-youtube { background: #FF0000; border-color: #FF0000; }
 
-.social-link-github:hover {
-    background-color: #000000;
-    border-color: #000000;
-}
-
-.social-link-instagram {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    border: none;
-}
-
-.social-link-instagram:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    filter: brightness(1.2);
-}
-
-.social-link-itch {
-    background: #FA5C5C;
-    border-color: #FA5C5C;
-}
-
-.social-link-itch:hover {
-    background: #FF3838;
-    border-color: #FF3838;
-}
-
-.social-link-leetcode {
-    background: #FFA116;
-    border-color: #FFA116;
-}
-
-.social-link-leetcode:hover {
-    background: #FFB84D;
-    border-color: #FFB84D;
-}
-
-.social-link-linkedin {
-    background: #0A66C2;
-    border-color: #0A66C2;
-}
-
-.social-link-linkedin:hover {
-    background: #004182;
-    border-color: #004182;
-}
-
-.social-link-youtube {
-    background: #FF0000;
-    border-color: #FF0000;
-}
-
+.social-link-github:hover,
+.social-link-instagram:hover,
+.social-link-itch:hover,
+.social-link-leetcode:hover,
+.social-link-linkedin:hover,
 .social-link-youtube:hover {
-    background: #CC0000;
-    border-color: #CC0000;
+    transform: scale(1.05);
+    text-decoration: none;
 }
 
-/* ==================== PORTFOLIO SECTION ==================== */
-#third-column {
-    width: 75%;
-    margin-left: 25%;
-    background-color: #F5D5E8;
-    padding: 30px 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    min-height: 100vh;
-}
-
+/* Portfolio Section */
 .streaming-container {
-    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* Category Sections */
 .repo-category {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .category-title {
     color: white;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 15px;
     padding-left: 10px;
     text-align: left;
 }
 
-/* Horizontal Scrolling Container */
 .folder-scroll {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 10px 5px 20px 5px;
+    padding: 5px 5px 15px 5px;
     scroll-behavior: smooth;
 }
 
@@ -255,26 +191,27 @@ body {
     background: rgba(255, 255, 255, 0.5);
 }
 
-/* Content Cards */
 .folder-card {
-    flex: 0 0 250px;
+    flex: 0 0 180px;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: block;
+    color: inherit;
 }
 
 .folder-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.25);
+    text-decoration: none;
 }
 
 .folder-thumbnail {
     width: 100%;
-    height: 140px;
+    height: 60px;
     background: linear-gradient(135deg, #e0e0e0 25%, transparent 25%),
                 linear-gradient(225deg, #e0e0e0 25%, transparent 25%),
                 linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
@@ -298,14 +235,14 @@ body {
 }
 
 .folder-info {
-    padding: 15px;
+    padding: 8px;
     background: rgba(255, 255, 255, 0.1);
 }
 
 .folder-info h3 {
-    margin: 0 0 5px 0;
+    margin: 0 0 3px 0;
     color: white;
-    font-size: 1.1em;
+    font-size: 0.85em;
     font-weight: bold;
 }
 
@@ -315,7 +252,7 @@ body {
     font-size: 0.9em;
 }
 
-/* ==================== RESPONSIVE DESIGN ==================== */
+/* Responsive */
 @media (max-width: 768px) {
     #left-column {
         width: 100%;
@@ -323,8 +260,7 @@ body {
         height: auto;
     }
     
-    #right-column,
-    #third-column {
+    #right-column {
         width: 100%;
         margin-left: 0;
     }
