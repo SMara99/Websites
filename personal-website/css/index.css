@@ -199,6 +199,27 @@ body {
     text-decoration: none;
 }
 
+/* Education Section */
+#education ul {
+    list-style: none;
+}
+
+#education li {
+    font-family: Arial, sans-serif;
+}
+
+#education a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+#education a:hover {
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
 /* Portfolio Section */
 .streaming-container {
     max-width: 1400px;

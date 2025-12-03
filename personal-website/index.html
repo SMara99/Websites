@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zmolsito's personal portfolio showcasing web development projects, games, and professional work.">
-    <meta name="author" content="Zmolsito">
-    <title>Zmolsito - Portfolio</title>
+    <title>Personal Page - Zmolsito</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/indexscript.js" defer></script>
 </head>
@@ -15,55 +13,52 @@
         
         <!-- Left Sidebar -->
         <aside id="left-column">
-            <div id="profile-card" role="img" aria-label="Interactive profile card with social media links">
+            <div id="profile-card">
                 <div class="card-frame">
-                    <div class="card-flip-container" role="button" tabindex="0" aria-label="Click to flip card and view social media links">
+                    <div class="card-flip-container">
                         <div class="card-flipper">
                             <div class="card-front">
                                 <div class="card-image-container">
-                                    <img id="profile-image" src="" alt="Zmolsito profile picture" loading="lazy">
+                                    <img id="profile-image" src="" alt="Profile Image">
                                 </div>
                             </div>
                             <div class="card-back">
-                                <nav class="social-links-grid" aria-label="Social media links">
-                                    <a href="https://github.com/SMara99" class="social-link social-link-github" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">GitHub</a>
-                                    <a href="#" class="social-link social-link-instagram" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile">Instagram</a>
-                                    <a href="https://zmolsito.itch.io/" class="social-link social-link-itch" target="_blank" rel="noopener noreferrer" aria-label="Visit itch.io profile">itch.io</a>
-                                    <a href="https://leetcode.com/u/Zmolsito/" class="social-link social-link-leetcode" target="_blank" rel="noopener noreferrer" aria-label="Visit LeetCode profile">LeetCode</a>
-                                    <a href="https://www.linkedin.com/in/maria-%C8%99uteu-b59593243/" class="social-link social-link-linkedin" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">LinkedIn</a>
-                                    <a href="https://www.youtube.com/@mariasuteu6466" class="social-link social-link-youtube" target="_blank" rel="noopener noreferrer" aria-label="Visit YouTube channel">YouTube</a>
-                                </nav>
+                                <div class="social-links-grid">
+                                    <a href="https://github.com/SMara99" class="social-link-github">GitHub</a>
+                                    <a href="" class="social-link-instagram">Instagram</a>
+                                    <a href="https://zmolsito.itch.io/" class="social-link-itch">itch.io</a>
+                                    <a href="https://leetcode.com/u/Zmolsito/" class="social-link-leetcode">LeetCode</a>
+                                    <a href="https://www.linkedin.com/in/maria-%C8%99uteu-b59593243/" class="social-link-linkedin">LinkedIn</a>
+                                    <a href="https://www.youtube.com/@mariasuteu6466" class="social-link-youtube">YouTube</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <section id="education" aria-label="Education">
-                <h2 class="section-title">Education</h2>
-                <ul class="education-list">
-                    <li>School/University 1</li>
-                    <li>School/University 2</li>
-                    <li>School/University 3</li>
+            <div id="education">
+                <ul>
+                    <li><a href="https://www.ubbcluj.ro/" target="_blank">Universitatea Babeș-Bolyai 2019-2025</a></li>
+                    <li><a href="https://www.utcluj.ro/" target="_blank">Universitatea Tehnică Cluj Napoca 2018-2019</a></li>
+                    <li><a href="https://www.liceulhaltrich.ro/" target="_blank">Liceul Teoretic "Joseph Haltrich" 2014-2018</a></li>
                 </ul>
-            </section>
+            </div>
         </aside>
         
         <!-- Right Content Area -->
         <main id="right-column">
-            <header>
-                <h1 id="full-name">Zmolsito</h1>
-            </header>
+            <div id="full-name">Zmolsito</div>
 
             <!-- Portfolio Section -->
-            <section class="streaming-container" aria-label="Portfolio">
+            <div class="streaming-container">
                 
-                <article class="repo-category">
+                <div class="repo-category">
                     <h2 class="category-title">Websites</h2>
-                    <div class="folder-scroll" role="list">
-                        <a href="../planner/index.html" class="folder-card" role="listitem">
+                    <div class="folder-scroll">
+                        <a href="../planner/index.html" class="folder-card">
                             <div class="folder-thumbnail">
-                                <img src="assets/schedule.PNG" alt="Household Planner preview" loading="lazy">
+                                <img src="assets/schedule.PNG" alt="Planner">
                             </div>
                             <div class="folder-info">
                                 <h3>Household Planner</h3>
@@ -71,41 +66,41 @@
                             </div>
                         </a>
                     </div>
-                </article>
+                </div>
 
-                <article class="repo-category">ry">
+                <div class="repo-category">
                     <h2 class="category-title">Games</h2>
-                    <div class="folder-scroll" role="list">
-                        <a href="../../Games/Memory/memory.html" class="folder-card" role="listitem">
+                    <div class="folder-scroll">
+                        <a href="../../Games/Memory/memory.html" class="folder-card">
                             <div class="folder-thumbnail">
-                                <img src="" alt="Memory card matching game preview" loading="lazy">
+                                <img src="" alt="Memory Game">
                             </div>
                             <div class="folder-info">
                                 <h3>Memory</h3>
                                 <p>Card Matching Game</p>
                             </div>
                         </a>
-                        <a href="../../Games/Minesweeper/minesweeper.html" class="folder-card" role="listitem">
+                        <a href="../../Games/Minesweeper/minesweeper.html" class="folder-card">
                             <div class="folder-thumbnail">
-                                <img src="" alt="Minesweeper puzzle game preview" loading="lazy">
+                                <img src="" alt="Minesweeper">
                             </div>
                             <div class="folder-info">
                                 <h3>Minesweeper</h3>
                                 <p>Classic Puzzle Game</p>
                             </div>
                         </a>
-                        <a href="https://github.com/SMara99/Games/tree/main/Pong" class="folder-card" role="listitem" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/SMara99/Games/tree/main/Pong" class="folder-card">
                             <div class="folder-thumbnail">
-                                <img src="" alt="Pong arcade game preview" loading="lazy">
+                                <img src="" alt="Pong">
                             </div>
                             <div class="folder-info">
                                 <h3>Pong</h3>
                                 <p>Retro Arcade Game</p>
                             </div>
                         </a>
-                        <a href="https://github.com/SMara99/Games/tree/main/Tic-Tac-Toe" class="folder-card" role="listitem" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/SMara99/Games/tree/main/Tic-Tac-Toe" class="folder-card">
                             <div class="folder-thumbnail">
-                                <img src="" alt="Tic-Tac-Toe strategy game preview" loading="lazy">
+                                <img src="" alt="Tic-Tac-Toe">
                             </div>
                             <div class="folder-info">
                                 <h3>Tic-Tac-Toe</h3>
@@ -113,14 +108,14 @@
                             </div>
                         </a>
                     </div>
-                </article>
+                </div>
 
-                <article class="repo-category">ry">
+                <div class="repo-category">
                     <h2 class="category-title">Bachelor</h2>
-                    <div class="folder-scroll" role="list">
-                        <div class="folder-card" role="listitem">
+                    <div class="folder-scroll">
+                        <div class="folder-card">
                             <div class="folder-thumbnail">
-                                <img src="" alt="Bachelor's thesis project preview" loading="lazy">
+                                <img src="" alt="Bachelor Project">
                             </div>
                             <div class="folder-info">
                                 <h3>Thesis</h3>
@@ -128,9 +123,9 @@
                             </div>
                         </div>
                     </div>
-                </article>
+                </div>
                 
-            </section>
+            </div>
         </main>
     </div>
 </body>
