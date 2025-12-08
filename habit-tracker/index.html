@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>✓</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Habit Tracker</h2>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li class="filter-icon">☰</li>
+                    <li><a href="#" class="filter-btn active" data-filter="all" id="allHabitsBtn">All Habits</a></li>
+                    <li><a href="#" class="filter-btn" data-filter="daily" id="dailyBtn">Daily</a></li>
+                    <li><a href="#" class="filter-btn" data-filter="weekly">Weekly</a></li>
+                    <li><a href="#" class="filter-btn" data-filter="monthly">Monthly</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Categories Container -->
+            <div class="categories-container">
+                <div class="category-card" data-category="health">
+                    <h4>💪 Health</h4>
+                </div>
+                <div class="category-card" data-category="productivity">
+                    <h4>📚 Productivity</h4>
+                </div>
+                <div class="category-card" data-category="mindfulness">
+                    <h4>🧘 Mindfulness</h4>
+                </div>
+                <div class="category-card" data-category="social">
+                    <h4>👥 Social</h4>
+                </div>
+                <div class="category-card" data-category="hobbies">
+                    <h4>🎨 Hobbies</h4>
+                </div>
+            </div>
+            
+            <div class="add-habit-container">
+                <button class="add-habit-btn">+ Add New Habit</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Page Title -->
+            <div class="title-container">
+                <h1>Today's Habits</h1>
+                <p id="fullDate" class="full-date"></p>
+            </div>
+
+            <!-- Habits Container (Default View) -->
+            <div class="habits-container" id="habitsView">
+                <div class="habit-card">
+                    <div class="habit-header">
+                        <h3>Morning Exercise</h3>
+                        <span class="habit-category">Health</span>
+                    </div>
+                    <div class="habit-streak">
+                        <span class="streak-count">🔥 5 days</span>
+                    </div>
+                    <div class="habit-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="progress-text">70% this week</span>
+                    </div>
+                    <button class="complete-btn">✓ Mark Complete</button>
+                </div>
+
+                <div class="habit-card">
+                    <div class="habit-header">
+                        <h3>Read 30 Minutes</h3>
+                        <span class="habit-category">Productivity</span>
+                    </div>
+                    <div class="habit-streak">
+                        <span class="streak-count">🔥 12 days</span>
+                    </div>
+                    <div class="habit-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                        <span class="progress-text">85% this week</span>
+                    </div>
+                    <button class="complete-btn">✓ Mark Complete</button>
+                </div>
+
+                <div class="habit-card">
+                    <div class="habit-header">
+                        <h3>Meditation</h3>
+                        <span class="habit-category">Mindfulness</span>
+                    </div>
+                    <div class="habit-streak">
+                        <span class="streak-count">🔥 3 days</span>
+                    </div>
+                    <div class="habit-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
+                        <span class="progress-text">60% this week</span>
+                    </div>
+                    <button class="complete-btn">✓ Mark Complete</button>
+                </div>
+            </div>
+
+            <!-- Daily Journal View -->
+            <div class="daily-journal-container" id="dailyView" style="display: none;">
+                <div class="journal-card">
+                    <h2>Daily Habit Journal</h2>
+                    <div class="habit-list" id="habitList">
+                        <div class="habit-item">
+                            <select class="habit-icon-selector">
+                                <option value="💪">💪 Exercise</option>
+                                <option value="📚">📚 Reading</option>
+                                <option value="🧘">🧘 Meditation</option>
+                                <option value="💧">💧 Water</option>
+                                <option value="🥗">🥗 Healthy Eating</option>
+                                <option value="😴">😴 Sleep</option>
+                                <option value="✍️">✍️ Journaling</option>
+                                <option value="🎨">🎨 Creative Work</option>
+                                <option value="👥">👥 Social</option>
+                                <option value="🎯">🎯 Goals</option>
+                                <option value="🧹">🧹 Cleaning</option>
+                                <option value="💼">💼 Work</option>
+                            </select>
+                            <input type="text" class="habit-input" placeholder="Enter your habit...">
+                            <button class="check-btn">☐</button>
+                        </div>
+                    </div>
+                    <button class="add-item-btn">+ Add Habit</button>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h4>Total Habits</h4>
+                    <p class="stat-value">8</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Completed Today</h4>
+                    <p class="stat-value">3</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Current Streak</h4>
+                    <p class="stat-value">12 days</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Success Rate</h4>
+                    <p class="stat-value">78%</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
