@@ -35,9 +35,9 @@ Then navigate to `http://localhost:8080` in your browser.
 ```
 planner/
 ├── index.html              # Main HTML structure
-├── styles/
+├── css/
 │   └── styles.css         # Complete styling
-├── scripts/
+├── js/
 │   └── script.js          # Date display, background color, filters
 ├── database/
 │   └── supabase-setup.sql # Database schema for future backend

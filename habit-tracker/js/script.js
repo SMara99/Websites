@@ -143,17 +143,25 @@ function saveDailyJournal() {
     const habitList = document.getElementById('habitList');
     const habitItems = habitList.querySelectorAll('.habit-item');
     
+    // Load existing data to preserve timestamps
+    const stored = localStorage.getItem('dailyJournal');
+    const existingData = stored ? JSON.parse(stored) : { habits: [] };
+    
     const journalData = {
-        timestamp: Date.now(),
         habits: []
     };
     
-    habitItems.forEach(item => {
+    habitItems.forEach((item, index) => {
         const icon = item.querySelector('.habit-icon-selector').value;
         const text = item.querySelector('.habit-input').value;
         const checked = item.querySelector('.check-btn').classList.contains('checked');
         
-        journalData.habits.push({ icon, text, checked });
+        // Preserve existing timestamp or create new one
+        const timestamp = (existingData.habits[index] && existingData.habits[index].timestamp) 
+            ? existingData.habits[index].timestamp 
+            : Date.now();
+        
+        journalData.habits.push({ icon, text, checked, timestamp });
     });
     
     localStorage.setItem('dailyJournal', JSON.stringify(journalData));
@@ -168,8 +176,13 @@ function loadDailyJournal() {
     const now = Date.now();
     const twentyFourHours = 24 * 60 * 60 * 1000;
     
-    // Check if data is older than 24 hours
-    if (now - journalData.timestamp > twentyFourHours) {
+    // Filter out habits older than 24 hours
+    const validHabits = journalData.habits.filter(habit => {
+        return (now - habit.timestamp) <= twentyFourHours;
+    });
+    
+    // If no valid habits remain, clear storage
+    if (validHabits.length === 0) {
         localStorage.removeItem('dailyJournal');
         return;
     }
@@ -178,7 +191,7 @@ function loadDailyJournal() {
     const habitList = document.getElementById('habitList');
     habitList.innerHTML = ''; // Clear existing
     
-    journalData.habits.forEach(habit => {
+    validHabits.forEach(habit => {
         const newItem = document.createElement('div');
         newItem.className = 'habit-item';
         newItem.innerHTML = `
