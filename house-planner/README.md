@@ -9,7 +9,7 @@ A minimal household maintenance planner with filter views and task recommendatio
 - **Daily Background Color**: Background hue cycles through the year (365-day color spectrum)
 - **Current Date Display**: Shows full date (e.g., "Tuesday 25 November 2025")
 - **Clean Layout**: Sidebar navigation with right-aligned recommendation panel
-- **Database Ready**: Supabase integration prepared for future data management
+- **Shared Database**: Uses platform-wide database with subscription-based access (see `../shared/database/`)
 
 ## Getting Started
 
@@ -33,18 +33,24 @@ Then navigate to `http://localhost:8080` in your browser.
 ## Project Structure
 
 ```
-planner/
+house-planner/
 ├── index.html              # Main HTML structure
 ├── css/
 │   └── styles.css         # Complete styling
 ├── js/
 │   └── script.js          # Date display, background color, filters
-├── database/
-│   └── supabase-setup.sql # Database schema for future backend
 ├── docs/
-│   └── database-schema.md # Database documentation
+│   └── database-schema.md # Original schema docs (see ../shared/database/ for current)
 ├── README.md              # This file
 └── .gitignore
+
+../shared/                  # Platform-wide resources
+├── database/
+│   ├── supabase-setup.sql # Unified database schema
+│   └── README.md
+└── docs/
+    ├── database-schema.md      # Complete schema documentation
+    └── subscription-tiers.md   # Subscription plan details
 ```
 
 ## How to Use
@@ -61,23 +67,29 @@ planner/
 
 ## Future Features
 
-- Database integration with Supabase (PostgreSQL)
-- User authentication
+- Database integration with shared Supabase database
+- Subscription-based feature access
+- User authentication via platform-wide auth
 - CRUD operations for maintenance items, rooms, and frequencies
 - Task completion tracking with history
 - Filtering and sorting by status, priority, due date
 - Reminder notifications
+- Subscription limit enforcement (rooms, items based on plan)
 
 ## Tech Stack
 
 - **Frontend**: Pure HTML5, CSS3, Vanilla JavaScript (no frameworks)
-- **Backend** (Planned): Supabase (PostgreSQL + Authentication + Real-time)
+- **Backend**: Supabase (PostgreSQL + Authentication + Real-time) - Shared across all platform apps
 - **Deployment**: Static hosting (GitHub Pages, Netlify, Vercel compatible)
 
 ## Database Schema
 
-See `docs/database-schema.md` for complete database structure including:
-- Users (Supabase Auth)
-- Rooms
-- Frequencies
+See `../shared/docs/database-schema.md` for the complete unified database design, including:
+- **Subscription Management**: Plans, user subscriptions, app access control
+- **User Authentication**: Supabase Auth integration
+- **House Planner Tables**: Rooms, frequencies, maintenance items
+- **Row Level Security**: Data isolation per user
+- **Feature Limits**: Subscription-based access control
+
+Quick reference: `docs/database-schema.md` (original house-planner specific docs)
 - Maintenance Items

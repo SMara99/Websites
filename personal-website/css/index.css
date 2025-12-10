@@ -1,59 +1,43 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ============================================================
+   Personal Website - App-Specific Styles
+   ============================================================
+   Uses shared CSS variables from ../shared/css/variables.css
+   Contains unique card flip and gold frame styling
+   ============================================================ */
 
 body {
-    font-family: Arial, sans-serif;
     height: 100vh;
-    display: flex;
+    overflow: hidden;
+    background-color: var(--color-secondary);
 }
 
 .main-container {
     display: flex;
-    width: 100%;
+    height: 100vh;
+    background-color: var(--color-secondary);
 }
 
-/* Left Sidebar */
+/* ==================== Left Sidebar ==================== */
+
 #left-column {
-    width: 25%;
-    background-color: #E5C4D8;
-    padding: 20px;
+    width: 20%;
+    background-color: var(--bg-sidebar);
+    padding: var(--spacing-md);
     height: 100vh;
     position: fixed;
     overflow-y: auto;
 }
 
 #profile-card {
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-2xl);
     display: flex;
     justify-content: center;
 }
 
 .card-frame {
-    background: linear-gradient(135deg, #f5e6a8 0%, #e8d68a 100%);
-    border: 4px solid #c4a747;
-    border-radius: 8px;
+    background: transparent;
+    border-radius: var(--radius-md);
     padding: 6px;
-    box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.2),
-        inset 0 0 10px rgba(255, 255, 255, 0.3),
-        0 0 0 1px #8b7332;
-    position: relative;
-}
-
-.card-frame::before {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 4px;
-    pointer-events: none;
 }
 
 /* Flip Container */
@@ -68,7 +52,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    transition: transform 0.6s;
+    transition: transform var(--transition-slower);
     transform-style: preserve-3d;
 }
 
@@ -93,32 +77,30 @@ body {
     transform: rotateY(180deg);
     background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
     border: 2px solid #6d5a2e;
-    border-radius: 4px;
-    padding: 8px;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .card-image-container {
-    background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
-    border: 2px solid #6d5a2e;
-    border-radius: 4px;
-    padding: 4px;
+    background: transparent;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs);
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 #profile-image {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
 }
 
 #profile-image[src=""], #profile-image:not([src]) {
@@ -134,52 +116,57 @@ body {
     background-repeat: repeat;
 }
 
-/* Right Content Area */
+/* ==================== Right Content Area ==================== */
+
 #right-column {
-    width: 75%;
-    margin-left: 25%;
-    padding: 20px;
+    width: 80%;
+    margin-left: 20%;
+    padding: var(--spacing-xl) var(--spacing-2xl);
     overflow-y: auto;
     min-height: 100vh;
-    background-color: #F4C4DD;
+    background-color: var(--color-secondary);
 }
 
 #full-name {
-    color: white;
-    font-size: 2em;
+    color: var(--text-light);
+    font-size: var(--font-3xl);
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-2xl);
 }
 
-/* Social Links Grid on Card Back */
+/* ==================== Social Links Grid ==================== */
+
 .social-links-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 6px;
+    gap: var(--spacing-xs);
     width: 100%;
     height: 100%;
 }
 
-/* Social Links */
-.social-link-github,
-.social-link-instagram,
-.social-link-leetcode,
-.social-link-linkedin,
-.social-link-youtube,
-.social-link-itch {
+/* ==================== Social Links ==================== */
+
+[class^="social-link-"],
+[class*=" social-link-"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 8px;
+    padding: var(--spacing-xs) var(--spacing-sm);
     text-decoration: none;
-    border: 2px solid white;
-    border-radius: 8px;
-    color: white;
+    border: 2px solid var(--text-light);
+    border-radius: var(--radius-md);
+    color: var(--text-light);
     font-size: 10px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    font-weight: var(--font-bold);
+    transition: all var(--transition-slow);
     text-align: center;
+}
+
+[class^="social-link-"]:hover,
+[class*=" social-link-"]:hover {
+    transform: scale(1.05);
+    text-decoration: none;
 }
 
 .social-link-github { background-color: #181717; border-color: #181717; }
@@ -189,35 +176,30 @@ body {
 .social-link-linkedin { background: #0A66C2; border-color: #0A66C2; }
 .social-link-youtube { background: #FF0000; border-color: #FF0000; }
 
-.social-link-github:hover,
-.social-link-instagram:hover,
-.social-link-itch:hover,
-.social-link-leetcode:hover,
-.social-link-linkedin:hover,
-.social-link-youtube:hover {
-    transform: scale(1.05);
-    text-decoration: none;
-}
-
 /* Education Section */
 #education ul {
     list-style: none;
+    padding: 0;
 }
 
 #education li {
     font-family: Arial, sans-serif;
+    margin-bottom: var(--spacing-sm);
 }
 
 #education a {
     color: inherit;
     text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
+    transition: all var(--transition-base);
+    display: block;
+    font-size: var(--font-xs);
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #education a:hover {
-    transform: scale(1.05);
-    text-decoration: none;
+    transform: scale(1.02);
 }
 
 /* Portfolio Section */
@@ -227,24 +209,24 @@ body {
 }
 
 .repo-category {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
 }
 
 .category-title {
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 15px;
-    padding-left: 10px;
+    color: var(--text-light);
+    font-size: var(--font-lg);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-sm);
     text-align: left;
 }
 
 .folder-scroll {
     display: flex;
-    gap: 15px;
+    gap: var(--spacing-md);
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 5px 5px 15px 5px;
+    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-md) var(--spacing-xs);
     scroll-behavior: smooth;
 }
 
@@ -269,10 +251,10 @@ body {
 .folder-card {
     flex: 0 0 180px;
     background: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-slow);
     text-decoration: none;
     display: block;
     color: inherit;
@@ -281,7 +263,6 @@ body {
 .folder-card:hover {
     transform: scale(1.05);
     background: rgba(255, 255, 255, 0.25);
-    text-decoration: none;
 }
 
 .folder-thumbnail {
@@ -310,21 +291,21 @@ body {
 }
 
 .folder-info {
-    padding: 8px;
+    padding: var(--spacing-sm);
     background: rgba(255, 255, 255, 0.1);
 }
 
 .folder-info h3 {
-    margin: 0 0 3px 0;
-    color: white;
-    font-size: 0.85em;
-    font-weight: bold;
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--text-light);
+    font-size: var(--font-sm);
+    font-weight: var(--font-bold);
 }
 
 .folder-info p {
     margin: 0;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9em;
+    font-size: var(--font-sm);
 }
 
 /* Responsive */

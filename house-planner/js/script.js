@@ -16,7 +16,6 @@ let currentFilter = 'frequency';
 
 document.addEventListener('DOMContentLoaded', () => {
     setCurrentDate();
-    setDailyBackgroundColor();
     loadMaintenanceItems();
 });
 
@@ -36,28 +35,6 @@ function setCurrentDate() {
     if (fullDateElement) {
         fullDateElement.textContent = `${dayName} ${day} ${monthName} ${year}`;
     }
-}
-
-
-/* =========================================
-   BACKGROUND COLOR
-   ========================================= */
-
-function setDailyBackgroundColor() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const startOfYear = new Date(year, 0, 1);
-    const dayOfYear = Math.floor((today - startOfYear) / (1000 * 60 * 60 * 24));
-    const totalDays = isLeapYear(year) ? 366 : 365;
-    
-    const hue = Math.floor((dayOfYear / totalDays) * 360 + 30) % 360;
-    const backgroundColor = `hsl(${hue}, 50%, 85%)`;
-    
-    document.body.style.backgroundColor = backgroundColor;
-}
-
-function isLeapYear(year) {
-    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
 }
 
 

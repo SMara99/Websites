@@ -1,0 +1,359 @@
+/* ============================================================
+   Shared Components - Websites Platform
+   ============================================================
+   
+   Reusable UI components used across apps.
+   Import after variables.css and base.css
+   
+   Usage:
+   <link rel="stylesheet" href="../shared/css/variables.css">
+   <link rel="stylesheet" href="../shared/css/base.css">
+   <link rel="stylesheet" href="../shared/css/components.css">
+   ============================================================ */
+
+/* ==================== Filter Icon ==================== */
+
+.filter-icon {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-xl);
+    opacity: 0.5;
+    margin: 0;
+    color: var(--text-tertiary);
+}
+
+/* ==================== Glass Cards ==================== */
+
+.glass-card {
+    background: var(--glass-gradient);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+    box-shadow: var(--glass-shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* ==================== Room/Category Cards ==================== */
+
+.room-card,
+.category-card {
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    text-align: center;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.room-card h4,
+.category-card h4 {
+    color: var(--text-primary);
+    font-size: var(--font-sm);
+    font-weight: var(--font-semibold);
+    margin: 0;
+    transition: font-size var(--transition-base);
+}
+
+.room-card:hover h4,
+.category-card:hover h4 {
+    font-size: var(--font-base);
+}
+
+/* ==================== Folder/Project Cards ==================== */
+
+.folder-card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.folder-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.folder-thumbnail {
+    width: 100%;
+    height: 150px;
+    background-color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.folder-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.folder-info {
+    padding: var(--spacing-md);
+}
+
+.folder-info h3 {
+    font-size: var(--font-lg);
+    margin-bottom: var(--spacing-xs);
+}
+
+.folder-info p {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ==================== Habit Badges ==================== */
+
+.habit-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: var(--font-xs);
+    font-weight: var(--font-medium);
+    background-color: var(--color-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+/* ==================== Task Lines (Notebook Style) ==================== */
+
+.task-lines {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.task-line {
+    min-height: 24px;
+    position: relative;
+    cursor: text;
+}
+
+.task-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0.5px;
+    background-color: var(--text-tertiary);
+}
+
+/* ==================== Frequency Tags ==================== */
+
+.frequency-tag {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    font-weight: var(--font-medium);
+    background-color: var(--active-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+/* ==================== Status Indicators ==================== */
+
+.status-pending {
+    color: var(--text-secondary);
+}
+
+.status-completed {
+    color: #4caf50;
+}
+
+.status-overdue {
+    color: #f44336;
+}
+
+/* ==================== Priority Indicators ==================== */
+
+.priority-low {
+    color: #2196f3;
+}
+
+.priority-medium {
+    color: #ff9800;
+}
+
+.priority-high {
+    color: #f44336;
+}
+
+/* ==================== Loading States ==================== */
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--color-primary);
+    border-radius: var(--radius-full);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==================== Empty States ==================== */
+
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    color: var(--text-secondary);
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    opacity: 0.3;
+    margin-bottom: var(--spacing-md);
+}
+
+.empty-state-text {
+    font-size: var(--font-lg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.empty-state-subtext {
+    font-size: var(--font-sm);
+    color: var(--text-tertiary);
+}
+
+/* ==================== Scrollbar Styling ==================== */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);
+}
+
+/* ==================== Tooltips ==================== */
+
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--text-primary);
+    color: var(--text-light);
+    font-size: var(--font-xs);
+    white-space: nowrap;
+    border-radius: var(--radius-sm);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+    z-index: var(--z-tooltip);
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+}
+
+/* ==================== Dividers ==================== */
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: var(--spacing-lg) 0;
+}
+
+.divider-vertical {
+    width: 1px;
+    background-color: var(--border-color);
+    margin: 0 var(--spacing-lg);
+}
+
+/* ==================== Container Layouts ==================== */
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+/* ==================== Animations ==================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn var(--transition-slow) ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in {
+    animation: slideIn var(--transition-slow) ease-out;
+}

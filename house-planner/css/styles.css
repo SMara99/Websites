@@ -1,54 +1,108 @@
 /* ============================================================
-   Household Planner Stylesheet
+   Household Planner - App-Specific Styles
+   ============================================================
+   Uses shared CSS from ../shared/css/
+   Matches habit-tracker color scheme
    ============================================================ */
 
-/* Reset & Variables */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-    --primary-bg: #f8f9fa;
-    --secondary-bg: #fff;
-    --border-color: #ddd;
-    --text-primary: #333;
-    --text-secondary: #555;
-    --accent-hover: #e9ecef;
-    --glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(200,220,255,0.6) 25%, rgba(220,200,255,0.6) 50%, rgba(200,255,220,0.6) 75%, rgba(255,255,255,0.9));
-    --glass-border: 2px solid rgba(150,150,255,0.3);
-    --glass-shadow: 0 4px 15px rgba(200,200,255,0.3), inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(200,200,255,0.2);
-    --glass-shadow-hover: 0 6px 20px rgba(200,200,255,0.4), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(200,200,255,0.3);
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+body { 
+    background-color: var(--color-secondary);
 }
 
-/* Base Styles */
-body { font-family: Arial, sans-serif; line-height: 1.6; color: var(--text-primary); background-color: var(--secondary-bg); transition: background-color 2s ease; }
-main { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
-.main-content { padding: 2rem 0.5rem 2rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; }
+.main-content { 
+    padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-xl) var(--spacing-xl); 
+    display: grid; 
+    grid-template-columns: 1fr auto; 
+    gap: var(--spacing-xl); 
+}
 
-/* Header */
-.title-container { display: flex; justify-content: center; }
-.full-date { font-size: 1rem; color: var(--text-secondary); margin: 0.5rem 0 0 0; text-align: center; }
+/* ==================== Header ==================== */
 
-/* Sidebar */
-.sidebar { background-color: var(--primary-bg); border-right: 1px solid var(--border-color); padding: 2rem 1rem; position: sticky; top: 0; height: 100vh; }
-.sidebar h3 { color: var(--text-primary); font-size: 1.3rem; font-weight: bold; text-align: center; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); }
-.filter-icon { display: flex; align-items: center; font-size: 1.5rem; opacity: 0.5; margin: 0; color: #888; }
-.sidebar nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
-.sidebar nav ul li { margin: 0; }
-.sidebar nav ul li a { display: block; padding: 0.3rem 0.5rem; color: var(--text-secondary); text-decoration: none; border-radius: 4px; font-size: 0.7rem; font-weight: 500; transition: all 0.2s ease; }
-.sidebar nav ul li a:hover { background-color: var(--accent-hover); color: var(--text-primary); }
-.sidebar nav ul li a.filter-btn.active { background: var(--glass-gradient); border: var(--glass-border); box-shadow: var(--glass-shadow); backdrop-filter: blur(10px); color: var(--text-primary); font-weight: 600; }
-.sidebar nav ul li a.filter-btn.active:hover { box-shadow: var(--glass-shadow-hover); }
+.title-container { 
+    display: flex; 
+    justify-content: center; 
+}
 
-/* Filter Options */
-.rooms-container { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-top: 1.5rem; }
-.room-card { padding: 0.75rem; cursor: pointer; text-align: center; }
-.room-card h4 { color: var(--text-primary); font-size: 0.85rem; font-weight: 600; margin: 0; transition: font-size 0.2s ease; }
-.room-card:hover h4 { font-size: 0.95rem; }
+.full-date { 
+    font-size: var(--font-base); 
+    color: rgba(255,255,255,0.9); 
+    margin: var(--spacing-sm) 0 0 0; 
+    text-align: center; 
+}
 
-/* Task List */
-.tasks-container { display: flex; justify-content: flex-end; align-items: center; }
-.task-list { width: 300px; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--secondary-bg); box-shadow: var(--shadow-sm); }
-.task-list h3 { color: var(--text-primary); font-size: 1.8rem; font-weight: 700; font-family: 'Caveat', cursive; text-align: center; padding-bottom: 0.75rem; margin-bottom: 2rem; }
-.task-lines { display: flex; flex-direction: column; gap: 0.5rem; }
-.task-line { min-height: 24px; position: relative; cursor: text; }
-.task-line::before { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 0.5px; background-color: #999; }
+/* ==================== Sidebar Styling ==================== */
+
+.sidebar { 
+    background-color: var(--color-primary);
+    border-right: none;
+}
+
+.sidebar h3 { 
+    color: var(--text-light); 
+    font-size: var(--font-lg); 
+    font-weight: var(--font-bold); 
+    text-align: center; 
+    margin-bottom: var(--spacing-lg); 
+    padding-bottom: var(--spacing-sm); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
+}
+
+.sidebar nav ul li a { 
+    padding: var(--spacing-sm) var(--spacing-md); 
+    border-radius: var(--radius-sm); 
+    font-size: var(--font-sm);
+    color: var(--text-light);
+}
+
+.sidebar nav ul li a:hover { 
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar nav ul li a.active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==================== Filter Options ==================== */
+
+.rooms-container { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: var(--spacing-sm); 
+    margin-top: var(--spacing-lg); 
+}
+
+.room-card h4 { 
+    font-size: var(--font-sm); 
+    transition: font-size var(--transition-base); 
+}
+
+.room-card:hover h4 { 
+    font-size: var(--font-base); 
+}
+
+/* ==================== Task List ==================== */
+
+.tasks-container { 
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+}
+
+.task-list { 
+    width: 300px; 
+    padding: var(--spacing-lg); 
+    border: 1px solid var(--border-color); 
+    border-radius: var(--radius-md); 
+    background-color: var(--bg-secondary); 
+    box-shadow: var(--shadow-sm); 
+}
+
+.task-list h3 { 
+    color: var(--text-primary); 
+    font-size: var(--font-2xl); 
+    font-weight: var(--font-bold); 
+    font-family: var(--font-handwriting); 
+    text-align: center; 
+    padding-bottom: var(--spacing-sm); 
+    margin-bottom: var(--spacing-xl); 
+}
