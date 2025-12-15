@@ -12,16 +12,10 @@
 :root {
     /* ==================== Color Palette ==================== */
     
-    /* Primary Colors - Pink/Purple Theme */
-    --color-primary: #E5C4D8;
-    --color-secondary: #F4C4DD;
-    --color-accent: #c4a747;
-    
     /* Background Colors */
-    --bg-primary: #f8f9fa;
-    --bg-secondary: #fff;
+    --color-background: #D8CDD2;
     --bg-sidebar: #E5C4D8;
-    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card: #D5CDE0;
     
     /* Text Colors */
     --text-primary: #333;

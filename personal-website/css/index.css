@@ -8,13 +8,13 @@
 body {
     height: 100vh;
     overflow: hidden;
-    background-color: var(--color-secondary);
+    background-color: var(--color-background);
 }
 
 .main-container {
     display: flex;
     height: 100vh;
-    background-color: var(--color-secondary);
+    background-color: var(--color-background);
 }
 
 /* ==================== Left Sidebar ==================== */
@@ -81,7 +81,7 @@ body {
 
 .card-back {
     transform: rotateY(180deg);
-    background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+    background: var(--bg-card);
     border: 2px solid #6d5a2e;
     border-radius: var(--radius-sm);
     padding: var(--spacing-sm);
@@ -130,7 +130,7 @@ body {
     padding: var(--spacing-xl) var(--spacing-2xl);
     overflow-y: auto;
     min-height: 100vh;
-    background-color: var(--color-secondary);
+    background-color: var(--color-background);
 }
 
 #full-name {
@@ -277,7 +277,7 @@ body {
 
 .folder-card {
     flex: 0 0 180px;
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--bg-card);
     border-radius: var(--radius-md);
     overflow: hidden;
     cursor: pointer;
@@ -289,7 +289,7 @@ body {
 
 .folder-card:hover {
     transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--bg-card);
 }
 
 .folder-thumbnail {

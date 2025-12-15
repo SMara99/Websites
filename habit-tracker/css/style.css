@@ -8,11 +8,11 @@
 /* ==================== App-Specific Overrides ==================== */
 
 body {
-    background-color: var(--color-secondary);
+    background-color: var(--color-background);
 }
 
 .sidebar {
-    background-color: var(--color-primary);
+    background-color: var(--color-background);
 }
 
 .sidebar-header h2 {
@@ -47,7 +47,7 @@ body {
 }
 
 .add-habit-btn {
-    background: var(--bg-secondary);
+    background: #fff;
     color: var(--text-primary);
     border: 2px solid rgba(229,196,216,0.5);
     padding: var(--spacing-sm) var(--spacing-lg);
@@ -97,7 +97,7 @@ body {
 }
 
 .habit-category {
-    background: var(--color-primary);
+    background: var(--color-background);
     color: var(--text-light);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-full);
@@ -134,7 +134,7 @@ body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(90deg, var(--color-background), var(--color-background));
     border-radius: var(--radius-sm);
     transition: width var(--transition-slow);
 }
@@ -149,7 +149,7 @@ body {
 .complete-btn {
     /* Extends .btn-primary from shared/css/base.css */
     width: 100%;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(135deg, var(--color-background), var(--color-background));
 }
 
 .complete-btn:hover {
@@ -235,29 +235,29 @@ body {
 }
 
 .habit-icon-selector {
-    background: var(--bg-secondary);
+    background: #fff;
     cursor: pointer;
     padding: var(--spacing-sm);
 }
 
 .habit-icon-selector:hover,
 .habit-input:hover {
-    border-color: var(--color-primary);
+    border-color: var(--color-background);
 }
 
 .habit-icon-selector:focus,
 .habit-input:focus {
     outline: none;
-    border-color: var(--color-primary);
+    border-color: var(--color-background);
     box-shadow: 0 0 0 3px rgba(229, 196, 216, 0.2);
 }
 
 .check-btn {
     width: 50px;
     height: 50px;
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--color-background);
     border-radius: var(--radius-md);
-    background: var(--bg-secondary);
+    background: #fff;
     font-size: var(--font-xl);
     cursor: pointer;
     transition: all var(--transition-base);
@@ -272,15 +272,15 @@ body {
 }
 
 .check-btn.checked {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(135deg, var(--color-background), var(--color-background));
     color: var(--text-light);
-    border-color: var(--color-secondary);
+    border-color: var(--color-background);
 }
 
 .add-item-btn {
     /* Extends .btn-primary from shared/css/base.css */
     width: 100%;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(135deg, var(--color-background), var(--color-background));
     padding: var(--spacing-md);
 }
 
